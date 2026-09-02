@@ -3,501 +3,518 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>12-Week Analytics Career Trial</title>
+
+<title>12-Week Data & Biostatistics Study Plan</title>
 
 <style>
-:root{
-  --bg:#f5f3ee;
-  --card:#ffffff;
-  --text:#242424;
-  --muted:#777;
-  --line:#e4e0d8;
-  --green:#687b63;
-  --green-dark:#4d6049;
-  --green-light:#e9efe7;
-  --blue:#637b91;
-  --blue-light:#e8eef3;
-  --gold:#b48b42;
-  --gold-light:#f7edd7;
-  --red:#a85c55;
-  --shadow:0 8px 25px rgba(0,0,0,.06);
-  --radius:16px;
+:root {
+  --bg: #f5f6f2;
+  --card: #ffffff;
+  --text: #222722;
+  --muted: #6d746c;
+  --line: #dfe4dc;
+  --accent: #657b61;
+  --accent-dark: #40533d;
+  --soft: #edf2ea;
+  --gold: #b58a3a;
+  --gold-soft: #fff8e8;
+  --dark: #273127;
+  --danger: #9a4f4f;
+  --shadow: 0 8px 24px rgba(30,40,30,.07);
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.55;
+html {
+  scroll-behavior: smooth;
 }
 
-header{
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  padding:28px 5%;
-  position:sticky;
-  top:0;
-  z-index:20;
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+  line-height: 1.5;
 }
 
-.header-inner{
-  max-width:1250px;
-  margin:auto;
+button,
+input,
+select {
+  font: inherit;
 }
 
-h1{
-  margin:0 0 5px;
-  font-size:30px;
+button {
+  cursor: pointer;
 }
 
-.subtitle{
-  color:var(--muted);
-  margin:0;
+header {
+  background: var(--dark);
+  color: white;
+  padding: 34px 20px;
 }
 
-.container{
-  max-width:1250px;
-  margin:30px auto;
-  padding:0 20px 80px;
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
 }
 
-.dashboard{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-bottom:25px;
+header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 4vw, 42px);
 }
 
-.stat-card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:20px;
-  box-shadow:var(--shadow);
+header p {
+  margin: 0;
+  color: #dbe4d9;
+  max-width: 900px;
 }
 
-.stat-label{
-  color:var(--muted);
-  font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:.06em;
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
 }
 
-.stat-value{
-  font-size:28px;
-  font-weight:700;
-  margin-top:5px;
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 210px 180px;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
 }
 
-.progress-wrap{
-  margin-top:10px;
+.field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: var(--muted);
+  margin-bottom: 6px;
 }
 
-.progress{
-  height:9px;
-  background:#e8e5df;
-  border-radius:99px;
-  overflow:hidden;
+input,
+select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: white;
+  padding: 11px 12px;
+  color: var(--text);
 }
 
-.progress-bar{
-  height:100%;
-  background:var(--green);
-  width:0%;
-  transition:.3s;
+.dashboard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
 }
 
-.controls{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:18px;
-  margin-bottom:25px;
-  box-shadow:var(--shadow);
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
 }
 
-.controls-grid{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:12px;
+.stat {
+  background: var(--soft);
+  border-radius: 12px;
+  padding: 14px;
 }
 
-input,select{
-  width:100%;
-  padding:12px 14px;
-  border:1px solid var(--line);
-  border-radius:10px;
-  background:#fff;
-  font-size:14px;
+.stat span {
+  color: var(--muted);
+  font-size: 12px;
 }
 
-input:focus,select:focus{
-  outline:2px solid var(--green-light);
-  border-color:var(--green);
+.stat strong {
+  display: block;
+  font-size: 27px;
+  margin: 2px 0;
 }
 
-.notice{
-  background:var(--green-light);
-  border-left:5px solid var(--green);
-  padding:17px;
-  border-radius:10px;
-  margin-bottom:25px;
+.stat small {
+  color: var(--muted);
 }
 
-.week{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:20px;
-  margin-bottom:28px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
+.progress-track {
+  height: 10px;
+  background: #e4e8e2;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 16px;
 }
 
-.week-header{
-  padding:22px 24px;
-  border-bottom:1px solid var(--line);
-  background:#fbfaf7;
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width .3s ease;
 }
 
-.week-title-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:20px;
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
 }
 
-.week h2{
-  margin:0;
-  font-size:22px;
+.tab {
+  border: 1px solid var(--line);
+  background: white;
+  padding: 9px 14px;
+  border-radius: 999px;
 }
 
-.week-description{
-  color:var(--muted);
-  margin:5px 0 0;
+.tab.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
 }
 
-.path-badge{
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:99px;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.04em;
-  margin-bottom:7px;
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
-.path1{
-  background:var(--blue-light);
-  color:var(--blue);
+.info-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
 }
 
-.path2{
-  background:#eee8f3;
-  color:#765a89;
+.info-card h2 {
+  margin-top: 0;
 }
 
-.week-progress{
-  min-width:160px;
+.week {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 22px;
 }
 
-.week-progress-text{
-  font-size:12px;
-  color:var(--muted);
-  margin-bottom:5px;
-  text-align:right;
+.week-header {
+  padding: 20px;
+  background: #eef2eb;
+  border-bottom: 1px solid var(--line);
 }
 
-.days{
-  padding:0 20px;
+.week-header h2 {
+  margin: 0;
+  font-size: 21px;
 }
 
-.day{
-  border-bottom:1px solid var(--line);
-  padding:24px 5px;
+.week-header p {
+  margin: 5px 0 0;
+  color: var(--muted);
 }
 
-.day:last-child{
-  border-bottom:0;
+.week-progress {
+  margin-top: 12px;
 }
 
-.day.hidden{
-  display:none;
+.week-progress-label {
+  font-size: 12px;
+  color: var(--muted);
 }
 
-.day-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:15px;
+.days {
+  padding: 14px;
 }
 
-.day-title{
-  font-size:19px;
-  font-weight:700;
+.day {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 12px;
 }
 
-.day-subtitle{
-  color:var(--muted);
-  font-size:14px;
-  margin-top:2px;
+.day:last-child {
+  margin-bottom: 0;
 }
 
-.day-reward{
-  background:var(--gold-light);
-  color:#86652c;
-  padding:5px 9px;
-  border-radius:99px;
-  font-size:11px;
-  white-space:nowrap;
-  font-weight:700;
+.day-header {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: flex-start;
 }
 
-.timebox{
-  margin:14px 0;
-  padding:12px 15px;
-  background:#faf9f6;
-  border:1px solid var(--line);
-  border-radius:10px;
-  font-size:13px;
+.day-title h3 {
+  margin: 0 0 3px;
+  font-size: 18px;
 }
 
-.resource-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin:15px 0;
+.day-title p {
+  margin: 0 0 3px;
+  color: var(--muted);
 }
 
-.resource{
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:15px;
+.date {
+  font-size: 12px;
+  color: var(--muted);
 }
 
-.resource.free{
-  background:#f7faf6;
-  border-color:#dce8d8;
+.day-badge {
+  background: var(--soft);
+  color: var(--accent-dark);
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
-.resource.paid{
-  background:#faf9f7;
+.day-badge.complete {
+  background: #dfeadc;
 }
 
-.resource-label{
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.07em;
-  font-weight:800;
-  margin-bottom:5px;
+.day-body {
+  padding: 0 16px 18px;
 }
 
-.resource.free .resource-label{
-  color:var(--green-dark);
+.time-plan {
+  background: #fafbf9;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 13px;
+  margin-bottom: 15px;
 }
 
-.resource.paid .resource-label{
-  color:#8a806d;
+.time-plan strong {
+  display: block;
+  margin-bottom: 4px;
 }
 
-.resource a{
-  color:inherit;
-  font-weight:700;
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
 }
 
-.resource-meta{
-  font-size:12px;
-  color:var(--muted);
-  margin-top:5px;
+.section {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  margin-top: 14px;
 }
 
-.sections{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-  margin-top:15px;
+.section:first-child {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
 }
 
-.section{
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:16px;
+.section h4 {
+  margin: 0 0 9px;
+  font-size: 13px;
+  letter-spacing: .03em;
 }
 
-.section h4{
-  margin:0 0 12px;
-  font-size:14px;
-  text-transform:uppercase;
-  letter-spacing:.05em;
+.learn-list {
+  margin: 0;
+  padding-left: 18px;
 }
 
-.learn h4{
-  color:var(--blue);
+.learn-list li {
+  margin: 7px 0;
+  font-size: 14px;
 }
 
-.follow h4{
-  color:var(--green-dark);
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.build h4{
-  color:#7a6342;
+.checklist li {
+  margin: 8px 0;
 }
 
-.done h4{
-  color:#765a89;
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text);
 }
 
-.checklist{
-  list-style:none;
-  padding:0;
-  margin:0;
+.check-item input {
+  width: 17px;
+  height: 17px;
+  min-width: 17px;
+  margin-top: 2px;
+  accent-color: var(--accent);
 }
 
-.checklist li{
-  margin:9px 0;
+.check-item.done {
+  text-decoration: line-through;
+  color: var(--muted);
 }
 
-.checklabel{
-  display:flex;
-  gap:9px;
-  align-items:flex-start;
-  cursor:pointer;
-  font-size:14px;
+.resource {
+  padding: 9px 0;
+  border-bottom: 1px solid #edf0eb;
 }
 
-.checklabel input{
-  width:auto;
-  margin-top:5px;
-  accent-color:var(--green);
+.resource:last-child {
+  border-bottom: 0;
 }
 
-.checklabel input:checked + span{
-  text-decoration:line-through;
-  color:#999;
+.resource a {
+  color: var(--accent-dark);
+  font-weight: 750;
+  text-decoration: none;
 }
 
-.code{
-  margin-top:14px;
-  background:#202321;
-  color:#e9eee8;
-  padding:15px;
-  border-radius:11px;
-  overflow:auto;
-  font-size:12px;
-  line-height:1.55;
-  white-space:pre-wrap;
+.resource a:hover {
+  text-decoration: underline;
 }
 
-.done-box{
-  margin-top:16px;
-  background:#f6f1f8;
-  border:1px solid #e4d9e8;
-  border-radius:12px;
-  padding:14px;
-  font-size:13px;
+.resource-meta {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
 }
 
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin-top:12px;
+.cost {
+  display: inline-block;
+  font-size: 10px;
+  background: #ecefea;
+  color: #4d564b;
+  border-radius: 999px;
+  padding: 2px 6px;
+  margin-left: 4px;
+  font-weight: 800;
 }
 
-.tag{
-  padding:4px 8px;
-  background:#f1eee8;
-  border-radius:99px;
-  font-size:10px;
-  color:#706c64;
+.code-wrapper {
+  position: relative;
 }
 
-.reward-banner{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  max-width:350px;
-  background:#fff;
-  border:1px solid var(--gold);
-  box-shadow:0 12px 35px rgba(0,0,0,.15);
-  border-radius:15px;
-  padding:18px;
-  z-index:50;
-  display:none;
+pre {
+  background: #1d231d;
+  color: #eef3eb;
+  padding: 15px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 12px;
+  line-height: 1.55;
+  margin: 0;
 }
 
-.reward-banner.show{
-  display:block;
-  animation:pop .25s ease;
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: 0;
+  background: white;
+  color: #222;
+  border-radius: 7px;
+  padding: 5px 9px;
+  font-size: 11px;
 }
 
-@keyframes pop{
-  from{transform:translateY(15px);opacity:0}
-  to{transform:translateY(0);opacity:1}
+.milestones {
+  margin-top: 14px;
 }
 
-.reward-title{
-  font-weight:800;
-  color:#8a682d;
+.reward {
+  background: var(--gold-soft);
+  border-left: 4px solid var(--gold);
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 13px;
 }
 
-.start-box{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-top:15px;
+.hidden {
+  display: none !important;
 }
 
-.start-box input{
-  max-width:180px;
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: var(--dark);
+  color: white;
+  padding: 14px 17px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none;
+  transition: .25s;
+  z-index: 50;
+  max-width: 350px;
 }
 
-footer{
-  text-align:center;
-  color:var(--muted);
-  font-size:12px;
-  padding:30px;
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.empty{
-  padding:50px;
-  text-align:center;
-  color:var(--muted);
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 30px 20px;
+  font-size: 12px;
 }
 
-@media(max-width:900px){
-  .dashboard{
-    grid-template-columns:1fr 1fr;
+@media(max-width:850px) {
+  .controls {
+    grid-template-columns: 1fr;
   }
 
-  .controls-grid,
-  .resource-grid,
-  .sections{
-    grid-template-columns:1fr;
+  .stats {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .week-title-row{
-    flex-direction:column;
-  }
-
-  .week-progress{
-    width:100%;
+  .content-grid,
+  .info-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-@media(max-width:600px){
-  .dashboard{
-    grid-template-columns:1fr;
+@media(max-width:560px) {
+  main {
+    padding: 12px;
   }
 
-  h1{
-    font-size:24px;
+  .stats {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .day-header{
-    flex-direction:column;
+  .day-header {
+    display: block;
+  }
+
+  .day-badge {
+    display: inline-block;
+    margin-top: 8px;
   }
 }
 </style>
@@ -507,2354 +524,3252 @@ footer{
 
 <header>
   <div class="header-inner">
-    <h1>12-Week Analytics Career Trial</h1>
-    <p class="subtitle">
-      120 hours • 2 hours/day • 5 days/week • Two careers tested sequentially
+    <h1>12-Week Data & Biostatistics Study Plan</h1>
+    <p>
+      2 hours/day • 5 days/week • 10 hours/week.
+      Weeks 1–6: Python + Applied Statistics & Business Analytics.
+      Weeks 7–12: R + Biostatistics & Clinical Research.
     </p>
   </div>
 </header>
 
-<div class="container">
+<main>
 
-  <div class="notice">
-    <strong>How to use this:</strong>
-    Do not treat this like a reading list. Every study day follows the same sequence:
-    <strong>Learn → Follow Along → Build → Check Done When</strong>.
-    You should spend approximately 2 hours on the day and actually produce something.
-    The checkboxes are your reward system.
+<section class="controls">
+
+  <div class="field">
+    <label>SEARCH THE CURRICULUM</label>
+    <input
+      id="search"
+      type="search"
+      placeholder="Try: pandas, regression, Table 1, Kaplan-Meier..."
+    >
   </div>
 
-  <div class="dashboard">
-
-    <div class="stat-card">
-      <div class="stat-label">Overall Progress</div>
-      <div class="stat-value" id="overallPercent">0%</div>
-      <div class="progress-wrap">
-        <div class="progress">
-          <div class="progress-bar" id="overallBar"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-label">Checklist Points</div>
-      <div class="stat-value" id="points">0</div>
-      <div class="stat-label">earned</div>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-label">Days Completed</div>
-      <div class="stat-value" id="daysCompleted">0 / 60</div>
-    </div>
-
-    <div class="stat-card">
-      <div class="stat-label">Current Path</div>
-      <div class="stat-value" id="currentPath">Path 1</div>
-    </div>
-
+  <div class="field">
+    <label>PATH</label>
+    <select id="pathFilter">
+      <option value="all">All 12 Weeks</option>
+      <option value="python">Path 1 — Python</option>
+      <option value="r">Path 2 — R</option>
+    </select>
   </div>
 
-  <div class="controls">
+  <div class="field">
+    <label>START DATE</label>
+    <input id="startDate" type="date">
+  </div>
 
-    <div class="controls-grid">
+</section>
 
-      <input
-        id="search"
-        type="text"
-        placeholder="Search Python, regression, Kaplan-Meier, Table 1, pandas..."
-      >
+<section class="dashboard">
 
-      <select id="pathFilter">
-        <option value="all">All Paths</option>
-        <option value="path1">Path 1 — Python / Business Analytics</option>
-        <option value="path2">Path 2 — R / Clinical Research</option>
-      </select>
+  <div class="stats">
 
-      <select id="weekFilter">
-        <option value="all">All Weeks</option>
-      </select>
-
+    <div class="stat">
+      <span>Overall Progress</span>
+      <strong id="overallPct">0%</strong>
+      <small id="overallText">0 tasks completed</small>
     </div>
 
-    <div class="start-box">
-      <strong>My actual start date:</strong>
-      <input type="date" id="startDate">
-      <span style="font-size:12px;color:#777">
-        Week 1 begins on this date.
-      </span>
+    <div class="stat">
+      <span>Points</span>
+      <strong id="points">0</strong>
+      <small>10 points per checklist item</small>
+    </div>
+
+    <div class="stat">
+      <span>Path 1</span>
+      <strong id="path1Pct">0%</strong>
+      <small>Python + Business Analytics</small>
+    </div>
+
+    <div class="stat">
+      <span>Path 2</span>
+      <strong id="path2Pct">0%</strong>
+      <small>R + Clinical Research</small>
     </div>
 
   </div>
 
-  <div id="curriculum"></div>
+  <div class="progress-track">
+    <div id="overallBar" class="progress-bar"></div>
+  </div>
 
+  <div id="milestones" class="milestones"></div>
+
+</section>
+
+<div class="tabs">
+  <button class="tab active" data-filter="all">
+    All
+  </button>
+
+  <button class="tab" data-filter="python">
+    Python + Business Analytics
+  </button>
+
+  <button class="tab" data-filter="r">
+    R + Clinical Research
+  </button>
 </div>
 
-<div class="reward-banner" id="rewardBanner">
-  <div class="reward-title" id="rewardTitle"></div>
-  <div id="rewardMessage" style="margin-top:5px;font-size:13px"></div>
-</div>
+<section class="info-grid">
+
+  <div class="info-card">
+    <h2>How this plan works</h2>
+
+    <p>
+      Every study day follows the same workflow:
+    </p>
+
+    <p>
+      <strong>Learn First → Follow Along → Build → Done When</strong>
+    </p>
+
+    <p>
+      The learning source is there because the goal is not simply
+      to complete checkboxes. You are learning how analysts actually
+      work through a problem.
+    </p>
+
+    <p>
+      Every Follow Along, Build and Done When checkbox earns points.
+      Progress is saved automatically in your browser.
+    </p>
+  </div>
+
+  <div class="info-card">
+    <h2>Real-world workflow</h2>
+
+    <p>
+      <strong>Business analytics:</strong>
+      raw transactions → cleaning → feature engineering →
+      aggregation → statistics/model → recommendation →
+      executive communication.
+    </p>
+
+    <p>
+      <strong>Clinical research:</strong>
+      clinical dataset → variable definitions →
+      baseline Table 1 → time-to-event data →
+      Kaplan–Meier/log-rank → Cox model →
+      clinically understandable reporting.
+    </p>
+  </div>
+
+</section>
+
+<div id="curriculum"></div>
+
+</main>
 
 <footer>
-  12-week trial • 10 hours/week • approximately 120 hours total
+  Standalone HTML • no external JavaScript required • progress stored locally
 </footer>
 
+<div id="toast" class="toast"></div>
 
 <script>
 
 /* =========================================================
    RESOURCE LIBRARY
-   ========================================================= */
+========================================================= */
 
-const resources = {
+const RES = {
 
-  pythonFree:{
-    title:"freeCodeCamp — Learn Python Full Course",
-    url:"https://www.youtube.com/watch?v=rfscVS0vtbw",
-    type:"FREE",
-    meta:"Beginner • ~4–5 hours total • YouTube"
+  pythonFree: {
+    title: "freeCodeCamp — Learn Python Full Course",
+    url: "https://www.youtube.com/watch?v=rfscVS0vtbw",
+    type: "YouTube",
+    cost: "FREE",
+    meta: "Beginner • approximately 4–5 hours"
   },
 
-  pythonCoursera:{
-    title:"Coursera — Programming for Everybody",
-    url:"https://www.coursera.org/learn/python/",
-    type:"PAID / FINANCIAL AID",
-    meta:"University of Michigan • beginner"
+  pythonCoursera: {
+    title: "Coursera — Programming for Everybody",
+    url: "https://www.coursera.org/learn/python/",
+    type: "Coursera",
+    cost: "PAID / FINANCIAL AID",
+    meta: "University of Michigan • beginner"
   },
 
-  kagglePython:{
-    title:"Kaggle Learn — Python",
-    url:"https://www.kaggle.com/learn/python",
-    type:"FREE",
-    meta:"Short interactive exercises"
+  kagglePython: {
+    title: "Kaggle Learn — Python",
+    url: "https://www.kaggle.com/learn/python",
+    type: "Interactive",
+    cost: "FREE",
+    meta: "Short hands-on lessons"
   },
 
-  pandasFree:{
-    title:"Kaggle Learn — Pandas",
-    url:"https://www.kaggle.com/learn/pandas",
-    type:"FREE",
-    meta:"Interactive pandas exercises"
+  pandasDocs: {
+    title: "pandas — Getting Started",
+    url: "https://pandas.pydata.org/docs/getting_started/",
+    type: "Documentation",
+    cost: "FREE",
+    meta: "Official pandas documentation"
   },
 
-  pandasDocs:{
-    title:"pandas — Getting Started",
-    url:"https://pandas.pydata.org/docs/getting_started/",
-    type:"FREE",
-    meta:"Official documentation"
+  kagglePandas: {
+    title: "Kaggle Learn — Pandas",
+    url: "https://www.kaggle.com/learn/pandas",
+    type: "Interactive",
+    cost: "FREE",
+    meta: "Hands-on pandas exercises"
   },
 
-  pandasCoursera:{
-    title:"Coursera — Pandas for Data Science",
-    url:"https://www.coursera.org/learn/pandas-data-science",
-    type:"PAID / FINANCIAL AID",
-    meta:"Duke University"
+  openIntro: {
+    title: "OpenIntro Statistics",
+    url: "https://www.openintro.org/book/os/",
+    type: "Book",
+    cost: "FREE",
+    meta: "Open introductory statistics textbook"
   },
 
-  statsCoursera:{
-    title:"Coursera — Statistics with Python",
-    url:"https://www.coursera.org/specializations/statistics-with-python/",
-    type:"PAID / FINANCIAL AID",
-    meta:"University of Michigan • beginner"
+  statsmodels: {
+    title: "statsmodels — Regression",
+    url: "https://www.statsmodels.org/stable/regression.html",
+    type: "Documentation",
+    cost: "FREE",
+    meta: "Official OLS/regression documentation"
   },
 
-  statsFree:{
-    title:"OpenIntro Statistics",
-    url:"https://www.openintro.org/book/os/",
-    type:"FREE",
-    meta:"Free statistics textbook"
+  statisticsPython: {
+    title: "Coursera — Statistics with Python",
+    url: "https://www.coursera.org/specializations/statistics-with-python/",
+    type: "Coursera",
+    cost: "PAID / FINANCIAL AID",
+    meta: "University of Michigan"
   },
 
-  statsmodels:{
-    title:"statsmodels — Regression Documentation",
-    url:"https://www.statsmodels.org/stable/regression.html",
-    type:"FREE",
-    meta:"Official documentation"
+  businessStats: {
+    title: "Coursera — Business Statistics and Analysis",
+    url: "https://www.coursera.org/specializations/business-statistics-analysis",
+    type: "Coursera",
+    cost: "PAID / FINANCIAL AID",
+    meta: "Business statistics"
   },
 
-  pythonStatsFree:{
-    title:"Khan Academy — Statistics & Probability",
-    url:"https://www.khanacademy.org/math/statistics-probability",
-    type:"FREE",
-    meta:"Concept-first statistics lessons"
+  retail: {
+    title: "UCI — Online Retail II",
+    url: "https://archive.ics.uci.edu/dataset/502/online%2Bretail",
+    type: "Dataset",
+    cost: "FREE",
+    meta: "Large UK online retail transaction dataset"
   },
 
-  rFree:{
-    title:"R for Data Science 2e",
-    url:"https://r4ds.hadley.nz/",
-    type:"FREE",
-    meta:"Full free online book"
+  retailFiles: {
+    title: "UCI — Online Retail II Files",
+    url: "https://archive-beta.ics.uci.edu/dataset/502/online%2Bretail%2Bii/files",
+    type: "Dataset",
+    cost: "FREE",
+    meta: "Download the Excel file"
   },
 
-  rVideo:{
-    title:"R for Beginners — YouTube course",
-    url:"https://www.classcentral.com/course/youtube-r-for-beginners-90367",
-    type:"FREE",
-    meta:"~10 hours • beginner"
+  r4ds: {
+    title: "R for Data Science, 2e",
+    url: "https://r4ds.hadley.nz/",
+    type: "Book",
+    cost: "FREE",
+    meta: "Free online R/tidyverse textbook"
   },
 
-  rCrash:{
-    title:"R Programming Crash Course — Traversy Media",
-    url:"https://www.classcentral.com/course/youtube-r-programming-crash-course-109168",
-    type:"FREE",
-    meta:"~1h 33m • beginner"
+  rVideo: {
+    title: "Class Central — R for Beginners",
+    url: "https://www.classcentral.com/course/youtube-r-for-beginners-90367",
+    type: "Video course",
+    cost: "FREE",
+    meta: "Approximately 10 hours • beginner"
   },
 
-  rCoursera:{
-    title:"Coursera — R Programming",
-    url:"https://www.coursera.org/learn/r-programming",
-    type:"PAID / FINANCIAL AID",
-    meta:"Johns Hopkins University"
+  rCoursera: {
+    title: "Coursera — R Programming",
+    url: "https://www.coursera.org/learn/r-programming",
+    type: "Coursera",
+    cost: "PAID / FINANCIAL AID",
+    meta: "Johns Hopkins • R fundamentals"
   },
 
-  table1:{
-    title:"CRAN — table1",
-    url:"https://cran.r-project.org/package=table1",
-    type:"FREE",
-    meta:"Official package documentation"
+  rIntro: {
+    title: "R — Introduction to R",
+    url: "https://cran.r-project.org/doc/manuals/r-release/R-intro.html",
+    type: "Manual",
+    cost: "FREE",
+    meta: "Official R introduction"
   },
 
-  survival:{
-    title:"CRAN — survival package",
-    url:"https://cran.r-project.org/package=survival",
-    type:"FREE",
-    meta:"Official R survival-analysis package"
+  heartFailure: {
+    title: "UCI — Heart Failure Clinical Records",
+    url: "https://archive.ics.uci.edu/dataset/519/heart%2Bf",
+    type: "Dataset",
+    cost: "FREE",
+    meta: "299 patients • 12 clinical features"
   },
 
-  survminer:{
-    title:"CRAN — survminer / ggsurvplot",
-    url:"https://search.r-project.org/CRAN/refmans/survminer/html/ggsurvplot.html",
-    type:"FREE",
-    meta:"Kaplan–Meier visualization"
+  heartFailureFiles: {
+    title: "UCI — Heart Failure Files",
+    url: "https://archive-beta.ics.uci.edu/dataset/519/heart%2Bfailure%2Bclinical%2Brecords/files",
+    type: "Dataset",
+    cost: "FREE",
+    meta: "CSV download"
   },
 
-  survivalVideo:{
-    title:"Biostatsquid — Survival Analysis in R",
-    url:"https://www.youtube.com/watch?v=XrvCCFQRCZE",
-    type:"FREE",
-    meta:"Kaplan–Meier • log-rank • Cox"
+  table1: {
+    title: "CRAN — table1",
+    url: "https://cran.r-project.org/package=table1",
+    type: "Package documentation",
+    cost: "FREE",
+    meta: "Clinical/epidemiological descriptive tables"
   },
 
-  survivalArticle:{
-    title:"Biostatsquid — Easy Survival Analysis in R",
-    url:"https://biostatsquid.com/easy-survival-analysis-r-tutorial/",
-    type:"FREE",
-    meta:"Step-by-step tutorial"
+  survival: {
+    title: "CRAN — survival",
+    url: "https://cran.r-project.org/package=survival",
+    type: "Package documentation",
+    cost: "FREE",
+    meta: "Survival analysis in R"
   },
 
-  consort:{
-    title:"CONSORT / BMJ — Reporting clinical trials",
-    url:"https://www.bmj.com/content/340/bmj.c869",
-    type:"FREE",
-    meta:"Clinical reporting perspective"
+  survminer: {
+    title: "CRAN — survminer / ggsurvplot",
+    url: "https://search.r-project.org/CRAN/refmans/survminer/html/ggsurvplot.html",
+    type: "Package documentation",
+    cost: "FREE",
+    meta: "Kaplan–Meier visualisation"
   },
 
-  uciRetail:{
-    title:"UCI — Online Retail II",
-    url:"https://archive.ics.uci.edu/dataset/502/online%2Bretail",
-    type:"FREE DATASET",
-    meta:"1M+ UK retail transactions"
+  survivalVideo: {
+    title: "Biostatsquid — Survival Analysis in R",
+    url: "https://www.youtube.com/watch?v=XrvCCFQRCZE",
+    type: "YouTube",
+    cost: "FREE",
+    meta: "Kaplan–Meier, log-rank and Cox"
   },
 
-  uciHeart:{
-    title:"UCI — Heart Failure Clinical Records",
-    url:"https://archive.ics.uci.edu/dataset/519/heart%2Bf",
-    type:"FREE DATASET",
-    meta:"299 patients • 13 clinical variables"
+  survivalGuide: {
+    title: "Biostatsquid — Easy Survival Analysis R Tutorial",
+    url: "https://biostatsquid.com/easy-survival-analysis-r-tutorial/",
+    type: "Tutorial",
+    cost: "FREE",
+    meta: "Step-by-step survival analysis"
   }
 
 };
 
 
 /* =========================================================
-   HELPER FUNCTIONS
-   ========================================================= */
+   HELPER FOR DAY OBJECTS
+========================================================= */
 
-function resourceHTML(r){
-
-  const cls = r.type.startsWith("FREE") ? "free" : "paid";
-
-  return `
-    <div class="resource ${cls}">
-      <div class="resource-label">${r.type}</div>
-      <a href="${r.url}" target="_blank" rel="noopener">${r.title}</a>
-      <div class="resource-meta">${r.meta}</div>
-    </div>
-  `;
-}
-
-
-function codeHTML(code){
-
-  if(!code) return "";
-
-  return `
-    <pre class="code">${escapeHTML(code)}</pre>
-  `;
-}
-
-
-function escapeHTML(text){
-
-  return text
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;");
+function day(
+  title,
+  subtitle,
+  learn,
+  follow,
+  build,
+  done,
+  resources,
+  tags,
+  code = ""
+) {
+  return {
+    title,
+    subtitle,
+    learn,
+    follow,
+    build,
+    done,
+    resources,
+    tags,
+    code
+  };
 }
 
 
 /* =========================================================
-   CURRICULUM DATA
-   ========================================================= */
+   CURRICULUM
+========================================================= */
 
 const curriculum = [
 
 /* =========================================================
-   PATH 1
-   WEEKS 1–6
-   ========================================================= */
+   WEEK 1
+========================================================= */
 
 {
-  week:1,
-  path:"path1",
-  title:"Python Foundations",
-  description:"Learn enough Python to manipulate variables, collections, logic, functions and files without getting lost in programming theory.",
+  path: "python",
 
-  days:[
+  title: "Week 1 — Python Fundamentals + Analyst Workflow",
 
-  {
-    day:1,
-    title:"Python setup + first programs",
-    subtitle:"Understand what Python is and create your first working script.",
-    learn:[
-      "Watch the freeCodeCamp Python course from 0:00 through the setup / first-program sections.",
-      "Understand Python files, variables, strings, numbers and print().",
-      "Do not try to memorize syntax. Type the examples yourself."
-    ],
-    follow:[
-      "Install Python 3.",
-      "Open a Python environment or VS Code.",
-      "Create a file called day01.py.",
-      "Type and run a hello-world program.",
-      "Create variables for name, age and monthly_income.",
-      "Print each variable.",
-      "Change the values and run it again."
-    ],
-    build:[
-      "Create a tiny personal finance calculator.",
-      "Store monthly income as a variable.",
-      "Store rent and other expenses as variables.",
-      "Calculate remaining money.",
-      "Print a clean sentence showing the result."
-    ],
-    done:"You can create a .py file, run it, create variables and perform basic arithmetic without copying the entire solution.",
-    resources:[resources.pythonFree,resources.pythonCoursera],
-    tags:["python","setup","variables","beginner"],
-    code:
-`income = 10000000
-rent = 2500000
-other_expenses = 3000000
+  description:
+    "Learn enough Python to manipulate values, make decisions, repeat work, write functions and build a small analysis.",
 
-remaining = income - rent - other_expenses
+  days: [
 
-print("Money remaining:", remaining)`
-  },
+    day(
+      "Setup + variables + data types",
+      "Get Python running and understand the basic building blocks.",
 
-  {
-    day:2,
-    title:"Strings, numbers and input",
-    subtitle:"Learn the basic data types you will encounter constantly in analytics.",
-    learn:[
-      "Continue the freeCodeCamp Python course through strings and numbers.",
-      "Learn int, float, str and basic string formatting.",
-      "Understand why data types matter when cleaning real datasets."
-    ],
-    follow:[
-      "Create integer and float variables.",
-      "Convert a string number into a float.",
-      "Concatenate strings.",
-      "Use f-strings.",
-      "Round a numerical result.",
-      "Create a simple percentage calculation."
-    ],
-    build:[
-      "Build a sales calculator.",
-      "Input quantity and unit price.",
-      "Calculate revenue.",
-      "Apply a discount percentage.",
-      "Print the final amount formatted to two decimals."
-    ],
-    done:"You can convert basic types, calculate percentages and produce readable output.",
-    resources:[resources.pythonFree,resources.kagglePython],
-    tags:["python","strings","numbers","types"],
-    code:
+      [
+        "Watch the freeCodeCamp sections on setup, variables, strings and numbers.",
+        "Practice each example yourself instead of only watching.",
+        "Use the Coursera course only if you want a more structured alternative."
+      ],
+
+      [
+        "Install Python or confirm Python already runs.",
+        "Open a Python file or notebook.",
+        "Print Hello World.",
+        "Create integer, float and string variables.",
+        "Use type() on each variable.",
+        "Change a variable and rerun the code."
+      ],
+
+      [
+        "Create variables for units sold, unit price and country.",
+        "Calculate revenue from quantity × unit price.",
+        "Print a readable sentence containing the result.",
+        "Create three different examples.",
+        "Write one sentence explaining each data type."
+      ],
+
+      "You can create variables, perform arithmetic and explain the difference between strings and numbers.",
+
+      [RES.pythonFree, RES.pythonCoursera, RES.kagglePython],
+
+      ["python", "fundamentals", "variables"],
+
 `quantity = 12
-unit_price = 25000
-discount = 0.10
+unit_price = 25.50
+country = "United Kingdom"
 
 revenue = quantity * unit_price
-final_price = revenue * (1 - discount)
 
-print(f"Revenue: {revenue:,.0f}")
-print(f"After discount: {final_price:,.0f}")`
-  },
+print("Revenue:", revenue)
+print("Country:", country)
+print(type(quantity))
+print(type(unit_price))
+print(type(country))`
+    ),
 
-  {
-    day:3,
-    title:"Lists, dictionaries and loops",
-    subtitle:"Learn the structures that make repetitive data work possible.",
-    learn:[
-      "Study lists and dictionaries in the freeCodeCamp course.",
-      "Study for-loops and if-statements.",
-      "Understand that analytics often means repeating an operation across many observations."
-    ],
-    follow:[
-      "Create a list of five sales values.",
-      "Loop through the list.",
-      "Calculate a running total.",
-      "Create a dictionary describing one customer.",
-      "Access dictionary values.",
-      "Create an if-statement that labels a customer."
-    ],
-    build:[
-      "Create a list of customer purchases.",
-      "Loop through the purchases.",
-      "Classify each purchase as low, medium or high.",
-      "Count how many purchases fall into each category.",
-      "Print the result."
-    ],
-    done:"You can use a loop to process multiple values and an if-statement to classify observations.",
-    resources:[resources.pythonFree,resources.kagglePython],
-    tags:["python","lists","dictionaries","loops"],
-    code:
-`purchases = [50, 120, 300, 80, 450]
+    day(
+      "Conditionals + loops",
+      "Make Python automate repeated decisions.",
+
+      [
+        "Study if, elif, else and for/while loops.",
+        "Focus on understanding the logic rather than memorising syntax.",
+        "Run every example with different values."
+      ],
+
+      [
+        "Write an if statement.",
+        "Add an elif branch.",
+        "Add an else branch.",
+        "Create a for loop over five numbers.",
+        "Create a while loop.",
+        "Change the values and rerun."
+      ],
+
+      [
+        "Classify purchases as high, medium or low.",
+        "Count how many purchases exceed a threshold.",
+        "Calculate a total using a loop.",
+        "Print every classification.",
+        "Test an edge case such as exactly 300."
+      ],
+
+      "You can use a condition and a loop to automate repeated decisions.",
+
+      [RES.pythonFree, RES.kagglePython],
+
+      ["python", "if", "loops"],
+
+`purchases = [80, 120, 300, 450, 90]
 
 for purchase in purchases:
+
     if purchase >= 300:
         label = "high"
+
     elif purchase >= 100:
         label = "medium"
+
     else:
         label = "low"
 
     print(purchase, label)`
-  },
+    ),
 
-  {
-    day:4,
-    title:"Functions + reusable analysis",
-    subtitle:"Stop writing the same calculation repeatedly.",
-    learn:[
-      "Study functions in the freeCodeCamp course.",
-      "Understand parameters, return values and reusable logic.",
-      "Learn why functions become important when an analysis gets bigger."
-    ],
-    follow:[
-      "Write a function with one parameter.",
-      "Return a calculated value.",
-      "Call the function multiple times.",
-      "Create a function with two parameters.",
-      "Add a default parameter.",
-      "Test the function with different values."
-    ],
-    build:[
-      "Create a reusable revenue function.",
-      "Create a percentage-change function.",
-      "Use the functions on at least five examples.",
-      "Print the results.",
-      "Test one edge case."
-    ],
-    done:"You can write and call a function without needing to copy a previous example.",
-    resources:[resources.pythonFree,resources.pythonCoursera],
-    tags:["python","functions","logic"],
-    code:
+    day(
+      "Lists + dictionaries",
+      "Store collections of business-like data.",
+
+      [
+        "Study lists and dictionaries.",
+        "Practice indexing, adding values and retrieving dictionary values.",
+        "Think about why structured data needs containers."
+      ],
+
+      [
+        "Create a list of sales.",
+        "Read one item by index.",
+        "Append a new item.",
+        "Loop over the list.",
+        "Create a dictionary for one customer.",
+        "Read a dictionary value by key."
+      ],
+
+      [
+        "Create five transaction dictionaries.",
+        "Store customer, country and purchase amount.",
+        "Loop through the transactions.",
+        "Calculate total purchase value.",
+        "Find the largest purchase."
+      ],
+
+      "You can store and retrieve multiple related values without creating dozens of separate variables.",
+
+      [RES.pythonFree, RES.kagglePython],
+
+      ["python", "lists", "dictionaries"],
+
+`transactions = [
+    {"customer": "A", "purchase": 120},
+    {"customer": "B", "purchase": 450},
+    {"customer": "C", "purchase": 80}
+]
+
+for row in transactions:
+    print(row["customer"], row["purchase"])`
+    ),
+
+    day(
+      "Functions + reusable analysis",
+      "Stop writing the same calculation repeatedly.",
+
+      [
+        "Study functions, parameters and return values.",
+        "Understand why reusable functions matter as an analysis grows.",
+        "Test every function with multiple inputs."
+      ],
+
+      [
+        "Write a function with one parameter.",
+        "Return a calculated value.",
+        "Call the function multiple times.",
+        "Create a function with two parameters.",
+        "Add a default parameter.",
+        "Test an edge case."
+      ],
+
+      [
+        "Create a reusable revenue function.",
+        "Create a percentage-change function.",
+        "Use the functions on at least five examples.",
+        "Print the results.",
+        "Test one edge case safely."
+      ],
+
+      "You can write and call a function without copying the same calculation repeatedly.",
+
+      [RES.pythonFree, RES.pythonCoursera],
+
+      ["python", "functions", "logic"],
+
 `def percentage_change(old, new):
     return (new - old) / old * 100
 
 print(percentage_change(100, 125))`
-  },
+    ),
 
-  {
-    day:5,
-    title:"Mini Python analysis",
-    subtitle:"Combine everything from Week 1.",
-    learn:[
-      "Review your notes rather than watching a new long lecture.",
-      "Rewatch only the sections you struggled with.",
-      "Read the relevant Kaggle Python lesson for anything still unclear."
-    ],
-    follow:[
-      "Create a fresh Python file.",
-      "Create a list of transactions.",
-      "Loop through transactions.",
-      "Use conditions to classify transactions.",
-      "Create at least one function.",
-      "Print summary results."
-    ],
-    build:[
-      "Build a mini transaction analyzer.",
-      "Calculate total sales.",
-      "Calculate average sale.",
-      "Find the largest sale.",
-      "Count high-value transactions.",
-      "Write three sentences explaining what the output means."
-    ],
-    done:"You can produce a small analysis from a blank Python file without following a step-by-step video.",
-    resources:[resources.kagglePython,resources.pythonFree],
-    tags:["python","mini-project","analysis"],
-    code:
+    day(
+      "Mini Python analysis",
+      "Combine everything from Week 1.",
+
+      [
+        "Review weak sections rather than watching another long lecture.",
+        "Use Kaggle Python lessons for anything you still cannot explain.",
+        "Work from a blank file for the build."
+      ],
+
+      [
+        "Create a fresh Python file.",
+        "Create a list of transactions.",
+        "Loop through transactions.",
+        "Use conditions to classify them.",
+        "Create at least one function.",
+        "Print summary results."
+      ],
+
+      [
+        "Build a mini transaction analyser.",
+        "Calculate total sales.",
+        "Calculate average sale.",
+        "Find the largest sale.",
+        "Count high-value transactions.",
+        "Write three sentences explaining the output."
+      ],
+
+      "You can produce a small analysis from a blank Python file without following a step-by-step video.",
+
+      [RES.kagglePython, RES.pythonFree],
+
+      ["python", "mini-project", "analysis"],
+
 `transactions = [120, 450, 80, 300, 900]
 
 total = sum(transactions)
 average = total / len(transactions)
 largest = max(transactions)
 
-print("Total:", total)
-print("Average:", average)
-print("Largest:", largest)`
-  }
+print("total:", total)
+print("average:", average)
+print("largest:", largest)`
+    )
 
   ]
 },
 
+/* =========================================================
+   WEEK 2
+========================================================= */
+
 {
-  week:2,
-  path:"path1",
-  title:"Pandas + Data Cleaning",
-  description:"Move from toy Python examples into actual tabular data. Load, inspect, clean and transform the UCI Online Retail II dataset.",
+  path: "python",
 
-  days:[
+  title: "Week 2 — pandas + Online Retail II Data Cleaning",
 
-  {
-    day:1,
-    title:"Pandas and DataFrames",
-    subtitle:"Understand the object you will use constantly in analytics.",
-    learn:[
-      "Complete the relevant Kaggle Pandas introduction lessons.",
-      "Read the pandas Getting Started page on DataFrames.",
-      "Understand rows, columns, indexes and data types."
-    ],
-    follow:[
-      "Import pandas.",
-      "Create a small DataFrame manually.",
-      "Inspect shape.",
-      "Inspect columns.",
-      "Inspect data types.",
-      "Select one column.",
-      "Select multiple columns."
-    ],
-    build:[
-      "Create a toy customer table.",
-      "Calculate a new revenue column.",
-      "Sort by revenue.",
-      "Filter high-value customers.",
-      "Export the result to CSV."
-    ],
-    done:"You understand what a DataFrame is and can select, filter, sort and create columns.",
-    resources:[resources.pandasFree,resources.pandasDocs],
-    tags:["pandas","dataframe","python","cleaning"],
-    code:
+  description:
+    "Move from raw transaction data to a trustworthy analysis dataset.",
+
+  days: [
+
+    day(
+      "Load Online Retail II + inspect",
+      "Open a real transaction dataset and learn what you are looking at.",
+
+      [
+        "Read the UCI Online Retail II dataset description.",
+        "Study pandas read_excel and basic inspection.",
+        "Download online_retail_II.xlsx from UCI."
+      ],
+
+      [
+        "Load the Excel file.",
+        "Print head().",
+        "Print shape.",
+        "Print columns.",
+        "Run info().",
+        "Inspect several random rows."
+      ],
+
+      [
+        "Load the Year 2009-2010 worksheet.",
+        "Record row count.",
+        "Record column names.",
+        "Identify numeric, text and date fields.",
+        "Write five observations about the raw data."
+      ],
+
+      "You can load the UCI file and explain what each major column represents.",
+
+      [RES.retail, RES.retailFiles, RES.pandasDocs],
+
+      ["python", "pandas", "online-retail", "data-loading"],
+
 `import pandas as pd
 
-df = pd.DataFrame({
-    "customer": ["A","B","C"],
-    "quantity": [2,5,1],
-    "price": [100,50,500]
-})
-
-df["revenue"] = df["quantity"] * df["price"]
-
-print(df)
-print(df[df["revenue"] > 200])`
-  },
-
-  {
-    day:2,
-    title:"Load the UCI Online Retail II dataset",
-    subtitle:"Start working with a real-world messy dataset.",
-    learn:[
-      "Read the UCI Online Retail II dataset description.",
-      "Understand InvoiceNo, StockCode, Quantity, InvoiceDate, UnitPrice, CustomerID and Country.",
-      "Look at the dataset before touching it."
-    ],
-    follow:[
-      "Download online_retail_II.xlsx from UCI.",
-      "Put the file in your project folder.",
-      "Read the Excel file with pandas.",
-      "Print shape.",
-      "Print the first five rows.",
-      "Print data types.",
-      "Print missing-value counts."
-    ],
-    build:[
-      "Create a clean notebook/script named online_retail_exploration.",
-      "Load the dataset.",
-      "Create a data dictionary in comments.",
-      "Record the row count.",
-      "Record the number of unique customers.",
-      "Record the number of countries."
-    ],
-    done:"You can open the real dataset and explain what each major column represents.",
-    resources:[resources.uciRetail,resources.pandasDocs],
-    tags:["uci","online-retail","pandas","dataset"],
-    code:
-`import pandas as pd
-
-df = pd.read_excel("online_retail_II.xlsx")
+df = pd.read_excel(
+    "online_retail_II.xlsx",
+    sheet_name="Year 2009-2010"
+)
 
 print(df.shape)
 print(df.head())
-print(df.dtypes)
-print(df.isna().sum())`
-  },
+print(df.info())
+print(df.columns.tolist())`
+    ),
 
-  {
-    day:3,
-    title:"Cleaning transactions",
-    subtitle:"Learn why real business data is rarely analysis-ready.",
-    learn:[
-      "Study pandas missing-value and data-cleaning material.",
-      "Understand duplicates, missing CustomerID, returns and invalid quantities.",
-      "Do not delete rows blindly: explain every cleaning rule."
-    ],
-    follow:[
-      "Count missing CustomerID.",
-      "Count duplicate rows.",
-      "Inspect negative Quantity values.",
-      "Inspect zero/negative UnitPrice values.",
-      "Identify cancellation invoices.",
-      "Create a cleaned copy rather than overwriting the original."
-    ],
-    build:[
-      "Create a documented cleaning pipeline.",
-      "Remove exact duplicates.",
-      "Create a cancellation flag.",
-      "Create revenue.",
-      "Decide how to treat invalid prices.",
-      "Document every rule in comments."
-    ],
-    done:"You can defend every cleaning decision instead of saying 'I deleted the bad rows.'",
-    resources:[resources.pandasFree,resources.pandasDocs],
-    tags:["cleaning","missing-values","duplicates","retail"],
-    code:
-`df = df.drop_duplicates().copy()
+    day(
+      "Missing values + cancellations + duplicates",
+      "Turn messy transactions into a defensible starting dataset.",
 
-df["is_cancelled"] = df["InvoiceNo"].astype(str).str.startswith("C")
+      [
+        "Study pandas missing-value, duplicate-row and filtering operations.",
+        "Read the UCI description for InvoiceNo and CustomerID.",
+        "Do not delete rows until you understand what they mean."
+      ],
 
-df["Revenue"] = df["Quantity"] * df["UnitPrice"]
+      [
+        "Count missing values.",
+        "Count duplicate rows.",
+        "Inspect InvoiceNo values beginning with C.",
+        "Count rows with Quantity <= 0.",
+        "Count rows with UnitPrice <= 0.",
+        "Check missing CustomerID."
+      ],
 
-print(df["is_cancelled"].value_counts())
-print(df["Revenue"].describe())`
-  },
+      [
+        "Create an is_cancelled flag.",
+        "Create a clean transaction dataset.",
+        "Exclude cancellations for sales analysis.",
+        "Exclude non-positive quantity and price.",
+        "Document every exclusion rule.",
+        "Compare row counts before and after cleaning."
+      ],
 
-  {
-    day:4,
-    title:"Groupby + customer metrics",
-    subtitle:"Turn transactions into business questions.",
-    learn:[
-      "Study pandas groupby and aggregation.",
-      "Learn sum, count, mean, nunique and multiple aggregations.",
-      "Think in business questions: who buys, how often and how much?"
-    ],
-    follow:[
-      "Group transactions by Country.",
-      "Calculate revenue by country.",
-      "Group by CustomerID.",
-      "Calculate total revenue per customer.",
-      "Calculate transaction count.",
-      "Calculate average transaction value."
-    ],
-    build:[
-      "Create a customer-level table.",
-      "Calculate total revenue.",
-      "Calculate order count.",
-      "Calculate average order value.",
-      "Sort customers by revenue.",
-      "Save customer_metrics.csv."
-    ],
-    done:"You have a customer-level analytical table rather than raw transactions.",
-    resources:[resources.pandasFree,resources.pandasDocs],
-    tags:["groupby","customer-analytics","pandas"],
-    code:
-`customer_metrics = (
-    df.groupby("CustomerID")
-      .agg(
-          total_revenue=("Revenue","sum"),
-          transactions=("InvoiceNo","nunique"),
-          average_line_value=("Revenue","mean")
-      )
-      .reset_index()
+      "You can explain every major cleaning rule instead of blindly dropping rows.",
+
+      [RES.pandasDocs, RES.retail],
+
+      ["python", "pandas", "cleaning", "missing-values"],
+
+`df = df.copy()
+
+df["InvoiceNo"] = df["InvoiceNo"].astype(str)
+
+df["is_cancelled"] = (
+    df["InvoiceNo"].str.startswith("C")
 )
 
-customer_metrics = customer_metrics.sort_values(
-    "total_revenue",
-    ascending=False
+clean = df.loc[
+    (~df["is_cancelled"]) &
+    (df["Quantity"] > 0) &
+    (df["UnitPrice"] > 0)
+].copy()
+
+print("raw rows:", len(df))
+print("clean rows:", len(clean))
+print(clean.isna().sum())`
+    ),
+
+    day(
+      "Dates + revenue feature engineering",
+      "Turn raw columns into analysis-ready variables.",
+
+      [
+        "Study pd.to_datetime and calculated columns.",
+        "Understand why Quantity × UnitPrice is a useful transaction-level feature.",
+        "Learn why dates should be parsed before time analysis."
+      ],
+
+      [
+        "Convert InvoiceDate to datetime.",
+        "Create Revenue.",
+        "Extract date.",
+        "Extract month.",
+        "Check minimum and maximum dates.",
+        "Sort by date."
+      ],
+
+      [
+        "Create Revenue = Quantity × UnitPrice.",
+        "Create YearMonth.",
+        "Check total revenue.",
+        "Find the highest-revenue transaction.",
+        "Check for impossible values."
+      ],
+
+      "You can create trustworthy date and revenue variables.",
+
+      [RES.pandasDocs, RES.kagglePandas],
+
+      ["python", "pandas", "dates", "feature-engineering"],
+
+`clean["InvoiceDate"] = pd.to_datetime(
+    clean["InvoiceDate"]
 )
 
-print(customer_metrics.head())`
-  },
+clean["Revenue"] = (
+    clean["Quantity"] *
+    clean["UnitPrice"]
+)
 
-  {
-    day:5,
-    title:"Week 2 cleaning report",
-    subtitle:"Create your first reproducible data-preparation report.",
-    learn:[
-      "Review pandas operations you used this week.",
-      "Read the pandas documentation for any operation you cannot explain.",
-      "Focus on understanding, not memorizing."
-    ],
-    follow:[
-      "Run your cleaning pipeline from a fresh file.",
-      "Confirm the original data is untouched.",
-      "Check row counts before and after cleaning.",
-      "Check missing values after cleaning.",
-      "Check the revenue calculation.",
-      "Check customer-level output."
-    ],
-    build:[
-      "Write a one-page data-cleaning summary.",
-      "State original row count.",
-      "State rows removed and why.",
-      "State missing-value decisions.",
-      "State final analytical dataset.",
-      "Save the notebook/script and CSV output."
-    ],
-    done:"Someone else could run your code and understand how raw transactions became your analytical dataset.",
-    resources:[resources.pandasDocs,resources.uciRetail],
-    tags:["pandas","documentation","cleaning","reporting"]
-  }
+clean["YearMonth"] = (
+    clean["InvoiceDate"].dt.to_period("M")
+)
+
+print(
+    clean[
+        ["InvoiceDate", "Revenue", "YearMonth"]
+    ].head()
+)`
+    ),
+
+    day(
+      "Groupby + aggregation + pivot tables",
+      "Turn transaction rows into business metrics.",
+
+      [
+        "Study groupby, agg and pivot_table.",
+        "Understand the difference between row-level data and aggregated data.",
+        "Practice naming outputs clearly."
+      ],
+
+      [
+        "Group by Country.",
+        "Calculate revenue by country.",
+        "Calculate order count.",
+        "Group by CustomerID.",
+        "Create a monthly table.",
+        "Sort the results."
+      ],
+
+      [
+        "Create monthly revenue.",
+        "Create customer revenue.",
+        "Create country revenue.",
+        "Calculate average order value.",
+        "Identify the top five countries by revenue."
+      ],
+
+      "You can turn transaction rows into interpretable KPI tables.",
+
+      [RES.kagglePandas, RES.pandasDocs],
+
+      ["python", "pandas", "groupby", "aggregation"],
+
+`monthly = (
+    clean.groupby("YearMonth")["Revenue"]
+    .sum()
+)
+
+customer_sales = (
+    clean.groupby("CustomerID")["Revenue"]
+    .sum()
+)
+
+country_sales = (
+    clean.groupby("Country")["Revenue"]
+    .sum()
+    .sort_values(ascending=False)
+)
+
+print(monthly)
+print(customer_sales.head())
+print(country_sales.head())`
+    ),
+
+    day(
+      "Customer + product + country EDA",
+      "Ask useful questions of the cleaned dataset.",
+
+      [
+        "Review pandas sorting, value_counts and groupby.",
+        "Return to the UCI variables and decide what business questions are answerable.",
+        "Do not chase every possible chart."
+      ],
+
+      [
+        "Find top products by quantity.",
+        "Find top products by revenue.",
+        "Find top countries by revenue.",
+        "Find customers by total revenue.",
+        "Check transaction count by country."
+      ],
+
+      [
+        "Produce five useful tables.",
+        "Produce at least three charts.",
+        "Identify one unusual pattern.",
+        "Identify one data-quality caveat.",
+        "Write a short EDA narrative."
+      ],
+
+      "You can choose a useful business question and support it with clean evidence.",
+
+      [RES.retail, RES.kagglePandas],
+
+      ["python", "EDA", "customers", "products"],
+
+`top_products = (
+    clean.groupby("Description")["Revenue"]
+    .sum()
+    .sort_values(ascending=False)
+    .head(10)
+)
+
+print(top_products)`
+    )
 
   ]
 },
 
+/* =========================================================
+   WEEK 3
+========================================================= */
+
 {
-  week:3,
-  path:"path1",
-  title:"Statistics + Exploratory Data Analysis",
-  description:"Learn descriptive statistics, distributions, variation, relationships and how to ask better questions before modeling.",
+  path: "python",
 
-  days:[
+  title: "Week 3 — Applied Statistics + Exploratory Data Analysis",
 
-  {
-    day:1,
-    title:"Mean, median, spread and distributions",
-    subtitle:"Learn what your numbers actually describe.",
-    learn:[
-      "Read the relevant descriptive-statistics sections in OpenIntro Statistics.",
-      "Use the free Khan Academy statistics material if the concepts feel unfamiliar.",
-      "Learn mean, median, range, variance, standard deviation and IQR."
-    ],
-    follow:[
-      "Calculate mean revenue.",
-      "Calculate median revenue.",
-      "Calculate standard deviation.",
-      "Calculate quartiles.",
-      "Compare mean versus median.",
-      "Explain what skewness might imply."
-    ],
-    build:[
-      "Analyze customer revenue.",
-      "Compare mean and median.",
-      "Calculate IQR.",
-      "Identify extreme customers.",
-      "Write a short interpretation."
-    ],
-    done:"You can explain why mean and median may tell different stories.",
-    resources:[resources.statsFree,resources.pythonStatsFree],
-    tags:["statistics","descriptive","eda"],
-    code:
-`x = customer_metrics["total_revenue"]
+  description:
+    "Describe distributions, quantify relationships and make defensible statistical comparisons.",
 
-print("Mean:", x.mean())
-print("Median:", x.median())
-print("Std:", x.std())
-print("IQR:", x.quantile(.75) - x.quantile(.25))`
-  },
+  days: [
 
-  {
-    day:2,
-    title:"EDA with pandas",
-    subtitle:"Explore before you model.",
-    learn:[
-      "Study exploratory data analysis in your Statistics with Python material.",
-      "Use pandas describe(), value_counts() and groupby().",
-      "Learn to distinguish a finding from a hypothesis."
-    ],
-    follow:[
-      "Run describe() on important numerical fields.",
-      "Check country frequencies.",
-      "Calculate revenue by country.",
-      "Calculate orders by month.",
-      "Inspect the top products.",
-      "Record three unusual observations."
-    ],
-    build:[
-      "Create an EDA notebook.",
-      "Answer five business questions.",
-      "Include at least five tables.",
-      "Create at least three visualizations.",
-      "Write a finding beneath each visualization."
-    ],
-    done:"Your EDA contains questions, evidence and interpretations rather than random charts.",
-    resources:[resources.statsCoursera,resources.statsFree],
-    tags:["eda","statistics","visualization","business"]
-  },
+    day(
+      "Descriptive statistics + distributions",
+      "Learn what the data looks like before testing anything.",
 
-  {
-    day:3,
-    title:"Correlation and relationships",
-    subtitle:"Understand association before jumping to causation.",
-    learn:[
-      "Study correlation in OpenIntro Statistics.",
-      "Understand positive, negative and weak relationships.",
-      "Learn why correlation does not establish causation."
-    ],
-    follow:[
-      "Create two customer-level variables.",
-      "Calculate Pearson correlation.",
-      "Inspect a scatterplot.",
-      "Identify possible outliers.",
-      "Compare correlation with visual evidence."
-    ],
-    build:[
-      "Investigate whether transaction frequency relates to revenue.",
-      "Calculate correlation.",
-      "Create a scatterplot.",
-      "Identify unusual observations.",
-      "Write a cautious interpretation."
-    ],
-    done:"You can explain both the statistical result and what it does NOT prove.",
-    resources:[resources.statsFree,resources.pythonStatsFree],
-    tags:["correlation","statistics","eda"]
-  },
+      [
+        "Read the descriptive-statistics sections of OpenIntro.",
+        "Practice pandas describe and quantiles.",
+        "Compare mean and median and understand why skew matters."
+      ],
 
-  {
-    day:4,
-    title:"Hypothesis testing",
-    subtitle:"Understand the logic behind statistical tests.",
-    learn:[
-      "Study hypothesis testing in OpenIntro.",
-      "Learn null hypothesis, alternative hypothesis, p-value and confidence interval.",
-      "Do not focus on memorizing formulas."
-    ],
-    follow:[
-      "Define a business question.",
-      "Write H0.",
-      "Write H1.",
-      "Choose an appropriate test conceptually.",
-      "Run a simple test in Python.",
-      "Interpret the p-value."
-    ],
-    build:[
-      "Compare average order value between two customer groups.",
-      "State the question before running the test.",
-      "Run the test.",
-      "Report estimate and p-value.",
-      "Explain practical significance separately."
-    ],
-    done:"You can state what a p-value means without saying 'the probability the hypothesis is true.'",
-    resources:[resources.statsFree,resources.statsCoursera],
-    tags:["hypothesis-testing","p-value","statistics"]
-  },
+      [
+        "Calculate count.",
+        "Calculate mean.",
+        "Calculate median.",
+        "Calculate standard deviation.",
+        "Calculate quartiles.",
+        "Plot a histogram."
+      ],
 
-  {
-    day:5,
-    title:"EDA executive summary",
-    subtitle:"Turn exploration into a business story.",
-    learn:[
-      "Review your previous EDA work.",
-      "Read about statistical communication.",
-      "Think like an analyst presenting to someone who does not care about your code."
-    ],
-    follow:[
-      "Choose three strongest findings.",
-      "Remove weak or redundant charts.",
-      "Give each chart a conclusion-style title.",
-      "Write one sentence of evidence.",
-      "Write one business implication."
-    ],
-    build:[
-      "Create a five-slide mini-deck.",
-      "Slide 1: business question.",
-      "Slides 2–4: evidence.",
-      "Slide 5: recommendation.",
-      "Use plain language instead of statistical jargon."
-    ],
-    done:"A non-technical manager could understand your conclusion in under five minutes.",
-    resources:[resources.statsFree,resources.statsCoursera],
-    tags:["presentation","storytelling","business","eda"]
-  }
+      [
+        "Describe Revenue.",
+        "Describe Quantity.",
+        "Compare mean and median.",
+        "Create a histogram.",
+        "Write three observations without causal language."
+      ],
+
+      "You can describe a distribution without immediately jumping to a statistical test.",
+
+      [RES.openIntro, RES.pandasDocs, RES.statisticsPython],
+
+      ["statistics", "EDA", "descriptive"],
+
+`print(clean["Revenue"].describe())
+
+print(
+    "median:",
+    clean["Revenue"].median()
+)
+
+print(
+    "Q1:",
+    clean["Revenue"].quantile(.25)
+)
+
+print(
+    "Q3:",
+    clean["Revenue"].quantile(.75)
+)`
+    ),
+
+    day(
+      "Sampling + uncertainty",
+      "Understand why a sample statistic is not the whole truth.",
+
+      [
+        "Study sampling and sampling variability in OpenIntro.",
+        "Learn the idea of a sampling distribution and standard error.",
+        "Use simulation rather than memorising formulas."
+      ],
+
+      [
+        "Take a random sample.",
+        "Calculate its mean.",
+        "Repeat sampling many times.",
+        "Store the means.",
+        "Plot the sampling distribution.",
+        "Compare sample and full-data means."
+      ],
+
+      [
+        "Simulate at least 500 samples.",
+        "Calculate the standard deviation of sample means.",
+        "Explain what that spread means.",
+        "Write one paragraph about uncertainty."
+      ],
+
+      "You can explain why estimates vary from sample to sample.",
+
+      [RES.openIntro, RES.statisticsPython],
+
+      ["statistics", "sampling", "uncertainty"],
+
+`import numpy as np
+
+means = []
+
+values = (
+    clean["Revenue"]
+    .dropna()
+)
+
+for _ in range(500):
+
+    sample = values.sample(
+        100,
+        replace=True
+    )
+
+    means.append(
+        sample.mean()
+    )
+
+print(
+    "mean of sample means:",
+    np.mean(means)
+)
+
+print(
+    "SD of sample means:",
+    np.std(means, ddof=1)
+)`
+    ),
+
+    day(
+      "Correlation + covariance",
+      "Measure relationships without confusing association with causation.",
+
+      [
+        "Study correlation and covariance in OpenIntro.",
+        "Review scatterplots and Pearson correlation.",
+        "Learn why association does not prove causation."
+      ],
+
+      [
+        "Select two numeric variables.",
+        "Create a scatterplot.",
+        "Calculate covariance.",
+        "Calculate correlation.",
+        "Inspect whether outliers change the relationship."
+      ],
+
+      [
+        "Explore Quantity and Revenue.",
+        "Explore UnitPrice and Quantity.",
+        "Create two scatterplots.",
+        "Calculate correlations.",
+        "Write a non-causal interpretation."
+      ],
+
+      "You can quantify an association and communicate its limitations.",
+
+      [RES.openIntro, RES.statisticsPython],
+
+      ["statistics", "correlation", "EDA"],
+
+`print(
+    clean[
+        [
+            "Quantity",
+            "UnitPrice",
+            "Revenue"
+        ]
+    ].corr()
+)`
+    ),
+
+    day(
+      "Hypothesis tests + confidence intervals",
+      "Make a comparison while keeping uncertainty visible.",
+
+      [
+        "Study confidence intervals and hypothesis tests in OpenIntro.",
+        "Learn null hypothesis, alternative hypothesis and p-value.",
+        "Understand why an interval estimate is useful."
+      ],
+
+      [
+        "Define a question.",
+        "State H0 and H1.",
+        "Choose an appropriate comparison.",
+        "Run the test.",
+        "Report the result.",
+        "Write the conclusion in plain language."
+      ],
+
+      [
+        "Compare transaction values for two countries.",
+        "Report group means.",
+        "Report sample sizes.",
+        "Report the test result.",
+        "State one limitation."
+      ],
+
+      "You can distinguish a statistical result from a business conclusion.",
+
+      [RES.openIntro, RES.statisticsPython],
+
+      ["statistics", "hypothesis-test", "confidence-interval"],
+
+`from scipy import stats
+
+a = (
+    clean.loc[
+        clean["Country"] == "United Kingdom",
+        "Revenue"
+    ]
+    .dropna()
+)
+
+b = (
+    clean.loc[
+        clean["Country"] == "Germany",
+        "Revenue"
+    ]
+    .dropna()
+)
+
+result = stats.ttest_ind(
+    a,
+    b,
+    equal_var=False
+)
+
+print(result)`
+    ),
+
+    day(
+      "EDA narrative",
+      "Turn statistical output into a coherent analytical story.",
+
+      [
+        "Review the EDA workflow.",
+        "Study the sequence chart → observation → implication → caveat.",
+        "Avoid presenting a list of disconnected numbers."
+      ],
+
+      [
+        "Choose one business question.",
+        "Select three supporting analyses.",
+        "Check sample sizes.",
+        "Check outliers.",
+        "Write an evidence-based conclusion."
+      ],
+
+      [
+        "Create a one-page EDA summary.",
+        "Include three charts or tables.",
+        "State the strongest finding.",
+        "State two caveats.",
+        "Give one recommended next analysis."
+      ],
+
+      "You can explain what the data says, what it does not say and what should happen next.",
+
+      [RES.openIntro, RES.kagglePandas],
+
+      ["statistics", "EDA", "storytelling"]
+    )
 
   ]
 },
 
+/* =========================================================
+   WEEK 4
+========================================================= */
+
 {
-  week:4,
-  path:"path1",
-  title:"Linear Regression + Statistical Modeling",
-  description:"Build and interpret regression models using statsmodels, with emphasis on assumptions and business interpretation.",
+  path: "python",
 
-  days:[
+  title: "Week 4 — Linear Regression with statsmodels",
 
-  {
-    day:1,
-    title:"What regression is actually doing",
-    subtitle:"Understand the model before touching statsmodels.",
-    learn:[
-      "Study linear regression in Statistics with Python.",
-      "Read the statsmodels regression overview.",
-      "Understand outcome, predictor, coefficient and residual."
-    ],
-    follow:[
-      "Create a toy dataset.",
-      "Fit a simple relationship conceptually.",
-      "Identify X and Y.",
-      "Explain what a coefficient represents.",
-      "Explain residuals."
-    ],
-    build:[
-      "Write down a business regression question.",
-      "Define outcome.",
-      "Define predictor.",
-      "Predict the direction of the relationship.",
-      "Explain what a useful result would mean."
-    ],
-    done:"You can explain regression in plain language before using code.",
-    resources:[resources.statsCoursera,resources.statsmodels],
-    tags:["regression","statistics","statsmodels"]
-  },
+  description:
+    "Fit, interpret and diagnose a business regression model.",
 
-  {
-    day:2,
-    title:"First OLS model",
-    subtitle:"Run your first statsmodels regression.",
-    learn:[
-      "Read the statsmodels OLS documentation/example.",
-      "Watch the relevant regression section from your statistics course.",
-      "Learn coef, p-value, R-squared and confidence interval."
-    ],
-    follow:[
-      "Create X and y.",
-      "Add a constant.",
-      "Fit OLS.",
-      "Print the summary.",
-      "Locate coefficients.",
-      "Locate R-squared."
-    ],
-    build:[
-      "Model customer revenue as a function of transaction count.",
-      "Fit the model.",
-      "Interpret the coefficient.",
-      "Report confidence interval.",
-      "Report R-squared.",
-      "Write a one-paragraph interpretation."
-    ],
-    done:"You can run OLS and identify the key parts of the output.",
-    resources:[resources.statsmodels,resources.statsCoursera],
-    tags:["ols","regression","python"],
-    code:
+  days: [
+
+    day(
+      "Regression intuition",
+      "Understand what linear regression is trying to estimate.",
+
+      [
+        "Study simple linear regression in OpenIntro.",
+        "Read the statsmodels regression overview.",
+        "Understand outcome, predictor, coefficient, residual and fitted value."
+      ],
+
+      [
+        "Define Y.",
+        "Define X.",
+        "Draw a scatterplot.",
+        "Identify positive and negative slopes.",
+        "Explain residuals in plain language."
+      ],
+
+      [
+        "Choose Revenue as an outcome.",
+        "Choose a sensible predictor.",
+        "Create a scatterplot.",
+        "Write the model equation in words.",
+        "List two reasons the relationship may not be causal."
+      ],
+
+      "You can explain a regression model before touching the code.",
+
+      [RES.openIntro, RES.statsmodels],
+
+      ["python", "regression", "statistics"]
+    ),
+
+    day(
+      "Fit an OLS model",
+      "Run your first statsmodels regression.",
+
+      [
+        "Read the official statsmodels OLS documentation.",
+        "Follow the formula/interface carefully.",
+        "Learn why an intercept exists."
+      ],
+
+      [
+        "Prepare X and y.",
+        "Add a constant.",
+        "Fit OLS.",
+        "Print summary().",
+        "Inspect coefficients.",
+        "Save the fitted model."
+      ],
+
+      [
+        "Model Revenue from Quantity and UnitPrice.",
+        "Check coefficient signs.",
+        "Record R-squared.",
+        "Record sample size.",
+        "Write a first-pass interpretation."
+      ],
+
+      "You can fit and inspect an OLS model in statsmodels.",
+
+      [RES.statsmodels, RES.statisticsPython],
+
+      ["python", "statsmodels", "OLS"],
+
 `import statsmodels.api as sm
 
-X = customer_metrics[["transactions"]]
-y = customer_metrics["total_revenue"]
+model_df = (
+    clean[
+        [
+            "Revenue",
+            "Quantity",
+            "UnitPrice"
+        ]
+    ]
+    .dropna()
+)
+
+X = model_df[
+    [
+        "Quantity",
+        "UnitPrice"
+    ]
+]
+
+y = model_df["Revenue"]
 
 X = sm.add_constant(X)
 
-model = sm.OLS(y, X).fit()
+model = sm.OLS(
+    y,
+    X
+).fit()
 
 print(model.summary())`
-  },
+    ),
 
-  {
-    day:3,
-    title:"Regression assumptions",
-    subtitle:"Learn why a regression output is not automatically trustworthy.",
-    learn:[
-      "Study linear regression assumptions.",
-      "Learn linearity, independence, constant variance and residual behavior.",
-      "Understand that diagnostics are part of modeling."
-    ],
-    follow:[
-      "Extract residuals.",
-      "Plot residuals.",
-      "Inspect fitted versus residual values.",
-      "Look for obvious patterns.",
-      "Identify potential outliers."
-    ],
-    build:[
-      "Create at least two diagnostic plots.",
-      "Describe whether assumptions look reasonable.",
-      "Identify potential violations.",
-      "Decide whether transformation or caution is needed.",
-      "Document the decision."
-    ],
-    done:"You understand that checking assumptions is part of the model, not an optional decoration.",
-    resources:[resources.statsFree,resources.statsmodels],
-    tags:["regression","assumptions","diagnostics"]
-  },
+    day(
+      "Coefficients + CI + p-values",
+      "Interpret model output instead of copying numbers.",
 
-  {
-    day:4,
-    title:"Multiple regression",
-    subtitle:"Move from one predictor to several.",
-    learn:[
-      "Study multiple regression.",
-      "Understand the difference between association and adjusted association.",
-      "Learn basic multicollinearity concepts."
-    ],
-    follow:[
-      "Choose three predictors.",
-      "Fit a multiple regression.",
-      "Inspect coefficients.",
-      "Compare confidence intervals.",
-      "Compare model fit."
-    ],
-    build:[
-      "Create a customer-value model.",
-      "Use transaction count and average order value.",
-      "Fit the model.",
-      "Interpret each coefficient.",
-      "Explain what 'holding other variables constant' means."
-    ],
-    done:"You can explain at least one coefficient from a multiple regression without reading it word-for-word.",
-    resources:[resources.statsmodels,resources.statsCoursera],
-    tags:["multiple-regression","statsmodels","business"]
-  },
+      [
+        "Study coefficients, confidence intervals and p-values.",
+        "Learn the difference between statistical evidence and practical importance.",
+        "Use the statsmodels summary to locate each quantity."
+      ],
 
-  {
-    day:5,
-    title:"Regression analysis brief",
-    subtitle:"Turn a model into an analyst recommendation.",
-    learn:[
-      "Review regression concepts.",
-      "Read your model output again.",
-      "Focus on interpretation rather than additional theory."
-    ],
-    follow:[
-      "Select your final model.",
-      "Document variables.",
-      "Document exclusions.",
-      "Document assumptions.",
-      "Document coefficients."
-    ],
-    build:[
-      "Create a two-page regression brief.",
-      "Page 1: question and method.",
-      "Page 2: results and implications.",
-      "Include one diagnostic chart.",
-      "Include limitations."
-    ],
-    done:"Someone can understand your model without opening your Python file.",
-    resources:[resources.statsmodels,resources.statsCoursera],
-    tags:["regression","reporting","presentation"]
-  }
+      [
+        "Locate coefficients.",
+        "Locate standard errors.",
+        "Locate p-values.",
+        "Locate confidence intervals.",
+        "Locate R-squared.",
+        "Explain one coefficient."
+      ],
 
-  ]
-},
+      [
+        "Create an interpretation table.",
+        "Report coefficient and 95% CI.",
+        "Flag uncertain estimates.",
+        "Explain practical meaning.",
+        "Avoid causal wording."
+      ],
 
-{
-  week:5,
-  path:"path1",
-  title:"Customer Analytics + Business Communication",
-  description:"Use the retail data to answer real commercial questions and communicate findings without drowning the audience in statistical jargon.",
+      "You can explain a coefficient and its uncertainty without reading the entire model summary aloud.",
 
-  days:[
+      [RES.statsmodels, RES.openIntro],
 
-  {
-    day:1,
-    title:"Customer segmentation",
-    subtitle:"Turn customer metrics into useful groups.",
-    learn:[
-      "Review groupby and descriptive statistics.",
-      "Learn the concept of customer segmentation.",
-      "Do not start with machine learning; first understand simple business segmentation."
-    ],
-    follow:[
-      "Create customer revenue.",
-      "Create order frequency.",
-      "Create average order value.",
-      "Create simple quantile groups.",
-      "Name the groups clearly."
-    ],
-    build:[
-      "Create four customer segments.",
-      "Describe each segment.",
-      "Calculate revenue contribution.",
-      "Calculate customer count.",
-      "Write one action for each segment."
-    ],
-    done:"You can explain why each segment exists and what someone might do differently for it.",
-    resources:[resources.pandasFree,resources.statsFree],
-    tags:["customer-analytics","segmentation","business"]
-  },
+      ["regression", "coefficients", "CI", "p-values"],
 
-  {
-    day:2,
-    title:"Retention-style thinking",
-    subtitle:"Think about customers over time.",
-    learn:[
-      "Study date manipulation in pandas.",
-      "Understand cohorts at a conceptual level.",
-      "Learn why time-based customer analysis is useful."
-    ],
-    follow:[
-      "Convert InvoiceDate to datetime.",
-      "Extract month.",
-      "Find each customer's first purchase.",
-      "Calculate months since first purchase.",
-      "Count repeat customers."
-    ],
-    build:[
-      "Create a simple repeat-purchase analysis.",
-      "Calculate first-time versus repeat orders.",
-      "Calculate repeat-customer share.",
-      "Compare revenue.",
-      "Write three business findings."
-    ],
-    done:"You can distinguish acquisition from repeat purchasing using transaction dates.",
-    resources:[resources.pandasDocs,resources.pandasFree],
-    tags:["retention","cohort","dates","customer"]
-  },
+`print(model.params)
 
-  {
-    day:3,
-    title:"Business dashboard thinking",
-    subtitle:"Decide what deserves to be on a dashboard.",
-    learn:[
-      "Review your strongest EDA findings.",
-      "Study basic business KPI thinking.",
-      "Learn the difference between a metric and a decision."
-    ],
-    follow:[
-      "Choose five KPIs.",
-      "Define each KPI.",
-      "Write its calculation.",
-      "Identify its business owner.",
-      "Identify a decision it supports."
-    ],
-    build:[
-      "Create a one-page KPI dashboard.",
-      "Include total revenue.",
-      "Include customer count.",
-      "Include order count.",
-      "Include average order value.",
-      "Include repeat-customer share."
-    ],
-    done:"Every KPI has a definition and a reason for existing.",
-    resources:[resources.pandasFree,resources.statsFree],
-    tags:["dashboard","kpi","business-analytics"]
-  },
+print(model.conf_int())
 
-  {
-    day:4,
-    title:"Business storytelling",
-    subtitle:"Learn to communicate evidence to non-statisticians.",
-    learn:[
-      "Review your statistics and regression findings.",
-      "Read the clinical/business communication examples in your resources.",
-      "Practice replacing jargon with plain English."
-    ],
-    follow:[
-      "Take three technical findings.",
-      "Rewrite each in plain English.",
-      "Add a business implication.",
-      "Add a limitation.",
-      "Choose the strongest visual."
-    ],
-    build:[
-      "Create a 6-slide executive deck.",
-      "Problem.",
-      "Data.",
-      "Three findings.",
-      "Recommendation.",
-      "Next step."
-    ],
-    done:"Your deck answers 'so what?' rather than simply displaying charts.",
-    resources:[resources.statsFree,resources.statsCoursera],
-    tags:["storytelling","presentation","business"]
-  },
+print(model.pvalues)
 
-  {
-    day:5,
-    title:"Mock analyst presentation",
-    subtitle:"Practice the actual work, not just the technical work.",
-    learn:[
-      "Review your deck.",
-      "Read your conclusions out loud.",
-      "Remove anything that requires the audience to understand statistics before understanding the message."
-    ],
-    follow:[
-      "Present the deck aloud.",
-      "Time yourself.",
-      "Mark where you hesitate.",
-      "Simplify unclear slides.",
-      "Prepare three questions a manager might ask."
-    ],
-    build:[
-      "Record or deliver a 5-minute presentation.",
-      "Answer your three prepared questions.",
-      "Write down what you would change.",
-      "Revise the deck.",
-      "Save the final version."
-    ],
-    done:"You can explain your analysis verbally without reading your slides.",
-    resources:[resources.statsFree,resources.statsCoursera],
-    tags:["presentation","communication","career"]
-  }
+print(
+    "R-squared:",
+    model.rsquared
+)`
+    ),
+
+    day(
+      "Diagnostics + assumptions",
+      "Check whether the model is behaving reasonably.",
+
+      [
+        "Study residuals, linearity, constant variance and influential observations.",
+        "Read the relevant statsmodels documentation.",
+        "Understand that diagnostics are a reason to investigate."
+      ],
+
+      [
+        "Create residuals.",
+        "Plot residuals versus fitted values.",
+        "Inspect a Q-Q plot.",
+        "Look for obvious heteroskedasticity.",
+        "Check extreme observations."
+      ],
+
+      [
+        "Create at least two diagnostic plots.",
+        "Describe one assumption concern.",
+        "Try a sensible transformation if needed.",
+        "Compare the model before and after.",
+        "Document what changed."
+      ],
+
+      "You can identify a model problem and explain why it matters.",
+
+      [RES.statsmodels, RES.openIntro],
+
+      ["regression", "diagnostics", "assumptions"],
+
+`import matplotlib.pyplot as plt
+import statsmodels.api as sm
+
+resid = model.resid
+
+fitted = model.fittedvalues
+
+plt.scatter(
+    fitted,
+    resid
+)
+
+plt.axhline(0)
+
+plt.xlabel("Fitted")
+plt.ylabel("Residual")
+
+plt.show()
+
+sm.qqplot(
+    resid,
+    line="45"
+)
+
+plt.show()`
+    ),
+
+    day(
+      "Customer spend model",
+      "Apply regression to a business question.",
+
+      [
+        "Review the regression workflow.",
+        "Define the question and analysis population before fitting the model.",
+        "Review diagnostics before making recommendations."
+      ],
+
+      [
+        "Define the outcome.",
+        "Select predictors.",
+        "Create the model dataset.",
+        "Fit OLS.",
+        "Inspect coefficients.",
+        "Inspect diagnostics."
+      ],
+
+      [
+        "Build a customer-level dataset.",
+        "Calculate total customer spend.",
+        "Add sensible customer-level features.",
+        "Fit a regression model.",
+        "Interpret important predictors.",
+        "Write three implications and two caveats."
+      ],
+
+      "You can connect a regression model to a real business decision.",
+
+      [RES.statsmodels, RES.openIntro],
+
+      ["regression", "customer-analytics", "business"]
+    )
 
   ]
 },
-
-{
-  week:6,
-  path:"path1",
-  title:"Path 1 Capstone — Business Analytics",
-  description:"Complete a mini end-to-end analytics project using UCI Online Retail II.",
-
-  days:[
-
-  {
-    day:1,
-    title:"Define the business problem",
-    subtitle:"Start with a decision, not a dataset.",
-    learn:[
-      "Review your EDA and business analytics material.",
-      "Study how analysts translate vague business questions into measurable questions.",
-      "Choose one business problem."
-    ],
-    follow:[
-      "Write the business context.",
-      "Write the decision-maker.",
-      "Write the primary question.",
-      "Define the target metric.",
-      "Define three supporting questions."
-    ],
-    build:[
-      "Create a project README.",
-      "Write the problem statement.",
-      "Write the data source.",
-      "Write assumptions.",
-      "Write success criteria."
-    ],
-    done:"Your project can be explained in 30 seconds without mentioning Python.",
-    resources:[resources.uciRetail,resources.statsFree],
-    tags:["capstone","business","project"]
-  },
-
-  {
-    day:2,
-    title:"Prepare the analytical dataset",
-    subtitle:"Build a reproducible pipeline.",
-    learn:[
-      "Review your Week 2 cleaning work.",
-      "Review pandas documentation as needed.",
-      "Focus on reproducibility."
-    ],
-    follow:[
-      "Load raw data.",
-      "Apply cleaning rules.",
-      "Create revenue.",
-      "Create customer metrics.",
-      "Save the analytical dataset."
-    ],
-    build:[
-      "Create one clean Python script.",
-      "Make it run from start to finish.",
-      "Add comments.",
-      "Add validation checks.",
-      "Save final data."
-    ],
-    done:"You can delete the output and regenerate it by running your script.",
-    resources:[resources.pandasDocs,resources.uciRetail],
-    tags:["capstone","pandas","cleaning"]
-  },
-
-  {
-    day:3,
-    title:"Analysis + statistical evidence",
-    subtitle:"Answer the questions.",
-    learn:[
-      "Review descriptive statistics and regression.",
-      "Choose only methods appropriate to your question.",
-      "Do not add statistics merely to make the project look advanced."
-    ],
-    follow:[
-      "Run descriptive analysis.",
-      "Run relevant comparison.",
-      "Run regression if justified.",
-      "Create diagnostic checks.",
-      "Record limitations."
-    ],
-    build:[
-      "Produce the final analytical tables.",
-      "Produce the final charts.",
-      "Write findings under every major chart.",
-      "Identify one uncertainty.",
-      "Identify one limitation."
-    ],
-    done:"Every chart and model answers a specific project question.",
-    resources:[resources.statsmodels,resources.statsFree],
-    tags:["capstone","regression","statistics"]
-  },
-
-  {
-    day:4,
-    title:"Executive presentation",
-    subtitle:"Make the work understandable.",
-    learn:[
-      "Review your Week 5 storytelling work.",
-      "Study your own presentation as if you were a manager.",
-      "Remove unnecessary technical detail."
-    ],
-    follow:[
-      "Build title slide.",
-      "Build problem slide.",
-      "Build evidence slides.",
-      "Build recommendation slide.",
-      "Build limitations slide."
-    ],
-    build:[
-      "Complete the 6–8 slide deck.",
-      "Add clear chart titles.",
-      "Add source notes.",
-      "Add recommendation.",
-      "Add next steps."
-    ],
-    done:"The deck tells one coherent story from problem to recommendation.",
-    resources:[resources.uciRetail,resources.statsFree],
-    tags:["capstone","presentation","business"]
-  },
-
-  {
-    day:5,
-    title:"Path 1 final assessment",
-    subtitle:"Decide whether Business Analytics is worth pursuing further.",
-    learn:[
-      "Do not learn new material today.",
-      "Review your entire project.",
-      "Compare how you felt doing cleaning, statistics, modeling and presentation."
-    ],
-    follow:[
-      "Run the entire project from a blank environment.",
-      "Check all outputs.",
-      "Check code readability.",
-      "Check statistical interpretations.",
-      "Check presentation."
-    ],
-    build:[
-      "Write a one-page reflection.",
-      "What work did you enjoy?",
-      "What work did you dislike?",
-      "What was hardest?",
-      "What would you want to learn next?",
-      "Would you do this work professionally?"
-    ],
-    done:"You have a finished business analytics case study and an honest assessment of Path 1.",
-    resources:[resources.statsmodels,resources.uciRetail],
-    tags:["capstone","assessment","career"]
-  }
-
-  ]
-},
-
 
 /* =========================================================
-   PATH 2
-   WEEKS 7–12
-   ========================================================= */
+   WEEK 5
+========================================================= */
 
 {
-  week:7,
-  path:"path2",
-  title:"R Foundations",
-  description:"Switch completely to R. No Python work this week. Learn R syntax, data frames, scripts and the tidyverse workflow.",
+  path: "python",
 
-  days:[
+  title: "Week 5 — Customer Analytics + Business Storytelling",
 
-  {
-    day:1,
-    title:"R setup + first script",
-    subtitle:"Start from zero in R.",
-    learn:[
-      "Use the free R beginner video/course.",
-      "Install R and RStudio.",
-      "Learn the R console versus an R script."
-    ],
-    follow:[
-      "Install R.",
-      "Install RStudio.",
-      "Create an R project.",
-      "Create an R script.",
-      "Create variables.",
-      "Print values.",
-      "Run code line-by-line."
-    ],
-    build:[
-      "Create a patient information object.",
-      "Store age.",
-      "Store sex.",
-      "Store a clinical measurement.",
-      "Print a short summary."
-    ],
-    done:"You can open RStudio, create a script and run R code without confusion.",
-    resources:[resources.rVideo,resources.rFree],
-    tags:["r","rstudio","beginner"],
-    code:
-`age <- 65
-sex <- "Female"
-ejection_fraction <- 35
+  description:
+    "Turn transactions into customer segments, KPIs and recommendations.",
 
-print(age)
-print(sex)
-print(ejection_fraction)`
-  },
+  days: [
 
-  {
-    day:2,
-    title:"Vectors, data frames and factors",
-    subtitle:"Understand R's basic data structures.",
-    learn:[
-      "Continue the free R beginner course.",
-      "Read the R for Data Science basics chapters.",
-      "Understand vectors, data frames and factors."
-    ],
-    follow:[
-      "Create a vector.",
-      "Create a data frame.",
-      "Inspect dimensions.",
-      "Inspect column names.",
-      "Convert a categorical variable to factor.",
-      "Subset rows."
-    ],
-    build:[
-      "Create a toy clinical dataset.",
-      "Add age.",
-      "Add sex.",
-      "Add outcome.",
-      "Add follow-up time.",
-      "Filter older patients."
-    ],
-    done:"You can create and subset a data frame without needing Python.",
-    resources:[resources.rFree,resources.rVideo],
-    tags:["r","dataframe","factors"]
-  },
+    day(
+      "RFM analysis",
+      "Translate transactions into customer behaviour features.",
 
-  {
-    day:3,
-    title:"dplyr data transformation",
-    subtitle:"Learn the workflow you will use repeatedly.",
-    learn:[
-      "Read the R4DS data transformation chapter.",
-      "Study filter, select, mutate, arrange and summarise.",
-      "Type examples rather than just reading."
-    ],
-    follow:[
-      "Use filter().",
-      "Use select().",
-      "Use mutate().",
-      "Use arrange().",
-      "Use summarise().",
-      "Use group_by()."
-    ],
-    build:[
-      "Create a patient summary.",
-      "Group by sex.",
-      "Calculate mean age.",
-      "Calculate patient count.",
-      "Calculate mean ejection fraction.",
-      "Sort the groups."
-    ],
-    done:"You can read a dplyr pipeline from top to bottom and explain what it does.",
-    resources:[resources.rFree,resources.rCrash],
-    tags:["r","dplyr","data-wrangling"]
-  },
+      [
+        "Study Recency, Frequency and Monetary value.",
+        "Use pandas groupby and datetime operations.",
+        "Keep definitions explicit so another analyst could reproduce them."
+      ],
 
-  {
-    day:4,
-    title:"Import clinical data",
-    subtitle:"Open the UCI Heart Failure dataset.",
-    learn:[
-      "Read the UCI Heart Failure dataset description.",
-      "Understand each clinical variable.",
-      "Learn what death_event represents."
-    ],
-    follow:[
-      "Download the CSV.",
-      "Create an R project.",
-      "Import the CSV.",
-      "Inspect dimensions.",
-      "Inspect variable names.",
-      "Inspect missing values."
-    ],
-    build:[
-      "Create a clinical analysis dataset.",
-      "Rename confusing variables if necessary.",
-      "Create factor variables.",
-      "Create readable labels.",
-      "Save the cleaned R object."
-    ],
-    done:"You can explain what the dataset contains before doing statistical analysis.",
-    resources:[resources.uciHeart,resources.rFree],
-    tags:["r","uci","clinical","dataset"],
-    code:
-`heart <- read.csv("heart_failure_clinical_records_dataset.csv")
+      [
+        "Choose a snapshot date.",
+        "Calculate recency.",
+        "Count unique invoices.",
+        "Calculate monetary value.",
+        "Inspect distributions."
+      ],
 
-dim(heart)
-names(heart)
-summary(heart)
-colSums(is.na(heart))`
-  },
+      [
+        "Create an RFM table.",
+        "Rank customers on R, F and M.",
+        "Create simple score bands.",
+        "Identify high-value customers.",
+        "Document your scoring rule."
+      ],
 
-  {
-    day:5,
-    title:"R Week 1 mini-analysis",
-    subtitle:"Combine the R basics.",
-    learn:[
-      "Review R4DS basics.",
-      "Do not start new advanced material.",
-      "Repeat anything you could not reproduce."
-    ],
-    follow:[
-      "Import the dataset.",
-      "Inspect variables.",
-      "Create one new variable.",
-      "Group by sex.",
-      "Summarise age and ejection fraction."
-    ],
-    build:[
-      "Create a short descriptive analysis.",
-      "Produce three summary tables.",
-      "Create one plot.",
-      "Write three findings.",
-      "Save the R script."
-    ],
-    done:"You can complete a small clinical data exploration in R from a blank script.",
-    resources:[resources.rFree,resources.uciHeart],
-    tags:["r","clinical","analysis"]
-  }
+      "You can construct an RFM table and explain every feature.",
+
+      [RES.kagglePandas, RES.retail],
+
+      ["customer-analytics", "RFM", "pandas"]
+    ),
+
+    day(
+      "Customer segmentation",
+      "Turn RFM metrics into useful groups.",
+
+      [
+        "Study segmentation concepts.",
+        "Start with transparent rule-based segmentation.",
+        "Review distributions before choosing cutoffs."
+      ],
+
+      [
+        "Inspect RFM distributions.",
+        "Choose transparent cutoffs.",
+        "Create segment labels.",
+        "Count customers per segment.",
+        "Compare revenue by segment."
+      ],
+
+      [
+        "Create at least four customer segments.",
+        "Calculate customers per segment.",
+        "Calculate revenue per segment.",
+        "Create a segment comparison chart.",
+        "Identify one segment to protect and one to grow."
+      ],
+
+      "You can defend a segmentation rule and connect it to an action.",
+
+      [RES.kagglePandas, RES.openIntro],
+
+      ["segmentation", "customer-analytics", "business"]
+    ),
+
+    day(
+      "KPI dashboard",
+      "Build a compact decision-oriented view.",
+
+      [
+        "Study business KPI design.",
+        "Review pandas aggregation and visualisation.",
+        "Choose metrics that answer the business question."
+      ],
+
+      [
+        "Define 4–6 KPIs.",
+        "Calculate each KPI.",
+        "Create a trend table.",
+        "Create at least three charts.",
+        "Check labels and units."
+      ],
+
+      [
+        "Build a dashboard with revenue.",
+        "Add orders.",
+        "Add customers.",
+        "Add average order value.",
+        "Add a repeat-customer metric.",
+        "Add a monthly trend."
+      ],
+
+      "You can build a dashboard where every visual has a decision purpose.",
+
+      [RES.kagglePandas, RES.businessStats],
+
+      ["KPI", "dashboard", "business-analytics"]
+    ),
+
+    day(
+      "Executive deck",
+      "Communicate without unnecessary statistics jargon.",
+
+      [
+        "Review your EDA and regression outputs.",
+        "Practice replacing technical language with decision language.",
+        "Learn that business communication is part of the analytical job."
+      ],
+
+      [
+        "Choose an audience.",
+        "Write a one-sentence business question.",
+        "Select three strongest findings.",
+        "Create a headline for each slide.",
+        "Add a recommendation."
+      ],
+
+      [
+        "Create a five-slide outline.",
+        "Slide 1: decision/question.",
+        "Slide 2: KPI trend.",
+        "Slide 3: customer insight.",
+        "Slide 4: evidence/model.",
+        "Slide 5: recommendation and caveats."
+      ],
+
+      "You can explain evidence to a non-statistician without dumping statistical output onto a slide.",
+
+      [RES.businessStats, RES.kagglePandas],
+
+      ["storytelling", "executive", "presentation"]
+    ),
+
+    day(
+      "Business recommendation",
+      "Turn evidence into an action plan.",
+
+      [
+        "Review the full business analytics workflow.",
+        "Separate finding, interpretation, recommendation and limitation.",
+        "Think like a decision-maker, not a software demonstrator."
+      ],
+
+      [
+        "List three findings.",
+        "Rank findings by business impact.",
+        "Identify evidence strength.",
+        "Identify data limitations.",
+        "Choose one action."
+      ],
+
+      [
+        "Write a one-page recommendation.",
+        "State the target group.",
+        "State the action.",
+        "State the expected metric.",
+        "State how success will be measured.",
+        "State the main caveat."
+      ],
+
+      "You can turn analysis into a concrete recommendation with a measurable next step.",
+
+      [RES.businessStats, RES.openIntro],
+
+      ["recommendation", "business", "storytelling"]
+    )
 
   ]
 },
 
+/* =========================================================
+   WEEK 6
+========================================================= */
+
 {
-  week:8,
-  path:"path2",
-  title:"Clinical Descriptive Statistics + Table 1",
-  description:"Learn the clinical-research workflow of describing a study population before modeling.",
+  path: "python",
 
-  days:[
+  title: "Week 6 — Path 1 Capstone",
 
-  {
-    day:1,
-    title:"Clinical descriptive statistics",
-    subtitle:"Understand how patient populations are summarized.",
-    learn:[
-      "Read the relevant descriptive-statistics sections in R4DS/OpenIntro.",
-      "Understand continuous versus categorical variables.",
-      "Learn mean/SD versus median/IQR."
-    ],
-    follow:[
-      "Calculate age mean and SD.",
-      "Calculate age median and IQR.",
-      "Calculate counts and percentages for sex.",
-      "Summarize smoking.",
-      "Summarize diabetes.",
-      "Compare the summaries."
-    ],
-    build:[
-      "Create a clinical descriptive table.",
-      "Include at least 8 variables.",
-      "Use appropriate summaries.",
-      "Format percentages.",
-      "Write a short interpretation."
-    ],
-    done:"You can decide whether a variable should be presented as mean/SD or median/IQR and explain why.",
-    resources:[resources.rFree,resources.statsFree],
-    tags:["clinical","descriptive","statistics"]
-  },
+  description:
+    "Complete an end-to-end business analytics project from question to executive recommendation.",
 
-  {
-    day:2,
-    title:"Table 1",
-    subtitle:"Build the table that appears constantly in clinical research.",
-    learn:[
-      "Read the CRAN table1 documentation.",
-      "Understand what a baseline characteristics table does.",
-      "Learn why the table is descriptive rather than a place to hunt for significance."
-    ],
-    follow:[
-      "Install table1.",
-      "Load table1.",
-      "Create labels.",
-      "Create a simple Table 1.",
-      "Stratify by death_event.",
-      "Render the table."
-    ],
-    build:[
-      "Create a full Table 1 for the Heart Failure dataset.",
-      "Include demographics.",
-      "Include clinical variables.",
-      "Include treatment/risk variables where appropriate.",
-      "Stratify by outcome.",
-      "Export or save the result."
-    ],
-    done:"You can produce a recognizable clinical-research Table 1 from the dataset.",
-    resources:[resources.table1,resources.rFree],
-    tags:["table1","clinical","r"],
-    code:
-`install.packages("table1")
+  days: [
+
+    day(
+      "Capstone scope",
+      "Define a question that can actually be answered by the data.",
+
+      [
+        "Review the UCI Online Retail II description.",
+        "Review your Week 2 cleaning notes.",
+        "Study how analysts define a question before writing code."
+      ],
+
+      [
+        "Choose one business question.",
+        "Define outcome/KPI.",
+        "Define population/time window.",
+        "List required variables.",
+        "Write inclusion/exclusion rules."
+      ],
+
+      [
+        "Create a one-page project brief.",
+        "State the question.",
+        "State three hypotheses or expectations.",
+        "State the analysis plan.",
+        "State known limitations."
+      ],
+
+      "You have a precise question and analysis plan before building the final project.",
+
+      [RES.retail, RES.openIntro],
+
+      ["capstone", "scope", "business"]
+    ),
+
+    day(
+      "Build the clean pipeline",
+      "Make your analysis reproducible.",
+
+      [
+        "Review pandas import, cleaning and feature engineering.",
+        "Re-run your earlier work from a blank environment.",
+        "Keep transformations in a logical order."
+      ],
+
+      [
+        "Load raw data.",
+        "Clean cancellations.",
+        "Filter invalid values.",
+        "Parse dates.",
+        "Create Revenue.",
+        "Create analysis tables."
+      ],
+
+      [
+        "Build one clean script/notebook from raw file to analysis dataset.",
+        "Add comments.",
+        "Print validation checks.",
+        "Save a clean output file.",
+        "Confirm rerunning produces the same key totals."
+      ],
+
+      "Another analyst could rerun your pipeline and understand what it does.",
+
+      [RES.pandasDocs, RES.retail],
+
+      ["capstone", "pipeline", "cleaning"]
+    ),
+
+    day(
+      "Analysis + model",
+      "Complete the core evidence.",
+
+      [
+        "Review descriptive statistics, EDA and regression.",
+        "Choose only analyses that answer your question.",
+        "Check diagnostics before interpreting regression."
+      ],
+
+      [
+        "Run descriptive analysis.",
+        "Create key charts.",
+        "Fit the selected model if appropriate.",
+        "Inspect uncertainty.",
+        "Check assumptions."
+      ],
+
+      [
+        "Produce final analysis tables/charts.",
+        "Write findings beside each output.",
+        "Record model limitations.",
+        "Perform a final data-quality check."
+      ],
+
+      "Your results directly answer the capstone question.",
+
+      [RES.openIntro, RES.statsmodels],
+
+      ["capstone", "statistics", "regression"]
+    ),
+
+    day(
+      "Business deck",
+      "Turn the analysis into an executive-ready story.",
+
+      [
+        "Review your Week 5 storytelling structure.",
+        "Remove unnecessary statistical jargon.",
+        "Keep technical details in notes or an appendix."
+      ],
+
+      [
+        "Write the executive headline.",
+        "Select three strongest visuals.",
+        "Write one takeaway per slide.",
+        "Add recommendation.",
+        "Add limitations."
+      ],
+
+      [
+        "Build a 5–7 slide deck.",
+        "Include the business question.",
+        "Show evidence rather than code.",
+        "Show recommended action.",
+        "Add an appendix with technical details."
+      ],
+
+      "Someone who never opened your notebook can understand the decision.",
+
+      [RES.businessStats, RES.kagglePandas],
+
+      ["capstone", "presentation", "storytelling"]
+    ),
+
+    day(
+      "Presentation + QA",
+      "Finish by testing both the analysis and the story.",
+
+      [
+        "Review the entire project from raw data to recommendation.",
+        "Use a checklist rather than adding new analysis.",
+        "Practice explaining the project aloud."
+      ],
+
+      [
+        "Rerun the analysis.",
+        "Check every number in the deck.",
+        "Check chart titles and units.",
+        "Check missing values and outliers.",
+        "Practice a five-minute explanation."
+      ],
+
+      [
+        "Present the project to yourself or a peer.",
+        "Answer five likely questions.",
+        "Write three things you would improve.",
+        "Archive the final notebook/script and deck."
+      ],
+
+      "You can defend your choices, explain limitations and present the project clearly.",
+
+      [RES.openIntro, RES.statsmodels],
+
+      ["capstone", "QA", "presentation"]
+    )
+
+  ]
+},
+
+/* =========================================================
+   WEEK 7
+========================================================= */
+
+{
+  path: "r",
+
+  title: "Week 7 — R Fundamentals + Tidyverse Workflow",
+
+  description:
+    "Build enough R fluency to import, transform, summarise and visualise data.",
+
+  days: [
+
+    day(
+      "Install R + RStudio + vectors",
+      "Get comfortable with the R environment.",
+
+      [
+        "Use R for Data Science or the free R beginner video.",
+        "Install R and RStudio/Posit if needed.",
+        "Learn vectors, basic types and assignment."
+      ],
+
+      [
+        "Run 1 + 1.",
+        "Create numeric vectors.",
+        "Create character vectors.",
+        "Use length().",
+        "Use mean().",
+        "Use summary()."
+      ],
+
+      [
+        "Create vectors for age, sex and outcome.",
+        "Calculate a mean.",
+        "Create a small data frame.",
+        "Inspect its structure."
+      ],
+
+      "You can run basic R code and explain vectors and data frames.",
+
+      [RES.r4ds, RES.rVideo, RES.rCoursera],
+
+      ["r", "RStudio", "fundamentals"],
+
+`ages <- c(55, 62, 71, 48)
+
+sex <- c(
+  "F",
+  "M",
+  "M",
+  "F"
+)
+
+mean(ages)
+
+length(ages)
+
+patients <- data.frame(
+  age = ages,
+  sex = sex
+)
+
+str(patients)`
+    ),
+
+    day(
+      "Data frames + subsetting",
+      "Learn to select the data you need.",
+
+      [
+        "Study R4DS data transformation.",
+        "Learn [, subset(), select() and filter().",
+        "Compare base R and tidyverse syntax."
+      ],
+
+      [
+        "Inspect names.",
+        "Select columns.",
+        "Filter rows.",
+        "Create a new column.",
+        "Sort data.",
+        "Check row counts."
+      ],
+
+      [
+        "Create a small clinical-style data frame.",
+        "Filter age > 60.",
+        "Select two variables.",
+        "Create a risk label.",
+        "Count observations."
+      ],
+
+      "You can select rows and columns and create new variables without confusion.",
+
+      [RES.r4ds, RES.rIntro],
+
+      ["r", "data-frame", "filtering"],
+
+`patients <- data.frame(
+  age = c(55, 62, 71, 48),
+  creatinine = c(
+    1.0,
+    1.8,
+    2.1,
+    0.9
+  )
+)
+
+subset(
+  patients,
+  age > 60
+)`
+    ),
+
+    day(
+      "Functions + pipes",
+      "Write readable R workflows.",
+
+      [
+        "Study R4DS functions and pipes.",
+        "Learn the native |> pipe.",
+        "Create small functions before attempting complex code."
+      ],
+
+      [
+        "Write a function.",
+        "Use a parameter.",
+        "Return a result.",
+        "Pipe a data frame through two transformations.",
+        "Test the function multiple times."
+      ],
+
+      [
+        "Create a percentage-change function.",
+        "Create a pipeline that filters and summarises.",
+        "Use it on practice data.",
+        "Explain each pipeline step."
+      ],
+
+      "You can read an R pipeline from left to right and write a simple reusable function.",
+
+      [RES.r4ds, RES.rVideo],
+
+      ["r", "functions", "pipes"],
+
+`percentage_change <- function(
+  old,
+  new
+) {
+  (new - old) / old * 100
+}
+
+percentage_change(
+  100,
+  125
+)`
+    ),
+
+    day(
+      "Import + clean CSV",
+      "Practice the workflow used for the clinical dataset.",
+
+      [
+        "Study R4DS import and tidy-data chapters.",
+        "Learn read.csv/readr::read_csv, missing values and variable types.",
+        "Inspect the dataset before changing it."
+      ],
+
+      [
+        "Import a CSV.",
+        "Inspect str().",
+        "Run summary().",
+        "Check missing values.",
+        "Check duplicates.",
+        "Inspect variable ranges."
+      ],
+
+      [
+        "Download the UCI Heart Failure CSV.",
+        "Import it.",
+        "Confirm 299 rows.",
+        "Inspect all variables.",
+        "Write down the variable types."
+      ],
+
+      "You can import a CSV and inspect it before analysis.",
+
+      [RES.heartFailureFiles, RES.r4ds],
+
+      ["r", "import", "cleaning", "clinical"],
+
+`library(tidyverse)
+
+hf <- read_csv(
+  "heart_failure_clinical_records_dataset.csv"
+)
+
+glimpse(hf)
+
+summary(hf)
+
+colSums(
+  is.na(hf)
+)`
+    ),
+
+    day(
+      "Mini R analysis",
+      "Combine the fundamentals before clinical statistics.",
+
+      [
+        "Review R4DS visualisation and transformation.",
+        "Recreate a small analysis from a blank script.",
+        "Use the Heart Failure dataset only for descriptive exploration today."
+      ],
+
+      [
+        "Load the dataset.",
+        "Inspect structure.",
+        "Calculate one mean.",
+        "Create one grouped summary.",
+        "Create one plot.",
+        "Save the script."
+      ],
+
+      [
+        "Calculate mean age.",
+        "Compare ejection fraction by death event.",
+        "Create a histogram.",
+        "Write three observations.",
+        "Do not make causal claims."
+      ],
+
+      "You can complete a small R analysis without following every line from a tutorial.",
+
+      [RES.r4ds, RES.heartFailure],
+
+      ["r", "mini-project", "clinical"]
+    )
+
+  ]
+},
+
+/* =========================================================
+   WEEK 8 — FULLY REVISED
+========================================================= */
+
+{
+  path: "r",
+
+  title: "Week 8 — Clinical Descriptive Statistics + Table 1",
+
+  description:
+    "Understand the clinical dataset, classify variables, create a publication-style Table 1 and interpret baseline characteristics.",
+
+  days: [
+
+    day(
+      "Inspect the Heart Failure Clinical Records dataset",
+      "Understand the study dataset before making any statistical table.",
+
+      [
+        "Read the UCI Heart Failure Clinical Records dataset description.",
+        "Read the meaning and coding of all 12 clinical variables.",
+        "Understand the difference between baseline characteristics, predictors and outcomes.",
+        "Learn why the dataset must be understood before choosing a statistical method."
+      ],
+
+      [
+        "Download heart_failure_clinical_records_dataset.csv.",
+        "Open RStudio.",
+        "Import the CSV.",
+        "Run glimpse().",
+        "Run summary().",
+        "Check dimensions.",
+        "Check missing values.",
+        "Inspect unique values for binary variables."
+      ],
+
+      [
+        "Confirm there are 299 observations.",
+        "Create a list of all variables.",
+        "Identify continuous variables.",
+        "Identify binary variables.",
+        "Identify the time variable.",
+        "Identify the death-event variable.",
+        "Create a simple data dictionary."
+      ],
+
+      "You can explain what the Heart Failure dataset contains before running a statistical test.",
+
+      [RES.heartFailure, RES.heartFailureFiles, RES.r4ds],
+
+      [
+        "r",
+        "clinical",
+        "heart-failure",
+        "dataset",
+        "descriptive-statistics"
+      ],
+
+`library(tidyverse)
+
+hf <- read_csv(
+  "heart_failure_clinical_records_dataset.csv"
+)
+
+dim(hf)
+
+glimpse(hf)
+
+summary(hf)
+
+colSums(
+  is.na(hf)
+)
+
+unique(
+  hf$DEATH_EVENT
+)`
+    ),
+
+    day(
+      "Clinical variable types + labels",
+      "Make the clinical dataset readable and analysis-ready.",
+
+      [
+        "Review R factors and categorical variables.",
+        "Understand why 0/1 variables often need readable labels.",
+        "Inspect variable ranges before creating summaries.",
+        "Review the UCI variable definitions while working."
+      ],
+
+      [
+        "Identify continuous variables.",
+        "Identify binary variables.",
+        "Check ranges.",
+        "Create factor labels.",
+        "Check event coding.",
+        "Check the time variable.",
+        "Verify that labels match the UCI documentation."
+      ],
+
+      [
+        "Create a labelled DEATH_EVENT factor.",
+        "Create readable labels for selected binary variables.",
+        "Check age range.",
+        "Check ejection fraction range.",
+        "Check serum creatinine range.",
+        "Check serum sodium range.",
+        "Write three data-quality observations."
+      ],
+
+      "You can distinguish numeric and categorical clinical variables and label them correctly.",
+
+      [RES.r4ds, RES.heartFailure],
+
+      [
+        "r",
+        "clinical",
+        "variables",
+        "factors",
+        "data-cleaning"
+      ],
+
+`hf$death_event <- factor(
+  hf$DEATH_EVENT,
+  levels = c(0, 1),
+  labels = c(
+    "Survived",
+    "Died"
+  )
+)
+
+table(
+  hf$death_event
+)
+
+summary(
+  hf$age
+)
+
+summary(
+  hf$ejection_fraction
+)
+
+summary(
+  hf$serum_creatinine
+)`
+    ),
+
+    day(
+      "Build your first Table 1",
+      "Learn the standard clinical descriptive-table workflow.",
+
+      [
+        "Read the CRAN table1 documentation.",
+        "Understand what a clinical Table 1 is designed to show.",
+        "Learn the difference between descriptive statistics and inferential testing.",
+        "Practice selecting variables that are clinically meaningful."
+      ],
+
+      [
+        "Install table1.",
+        "Load table1.",
+        "Choose continuous variables.",
+        "Choose categorical variables.",
+        "Run a basic Table 1.",
+        "Inspect the output.",
+        "Check whether labels are readable."
+      ],
+
+      [
+        "Build a Table 1 for the full Heart Failure dataset.",
+        "Include age.",
+        "Include anaemia.",
+        "Include diabetes.",
+        "Include ejection fraction.",
+        "Include high blood pressure.",
+        "Include serum creatinine.",
+        "Include serum sodium.",
+        "Include smoking."
+      ],
+
+      "You can generate a readable clinical descriptive table from R.",
+
+      [RES.table1, RES.heartFailure, RES.r4ds],
+
+      [
+        "r",
+        "biostatistics",
+        "table-1",
+        "descriptive-statistics"
+      ],
+
+`install.packages(
+  "table1"
+)
+
 library(table1)
 
-heart$death_event <- factor(
-  heart$DEATH_EVENT,
-  levels = c(0,1),
-  labels = c("Survived","Died")
+table1(
+  ~ age +
+    anaemia +
+    diabetes +
+    ejection_fraction +
+    high_blood_pressure +
+    serum_creatinine +
+    serum_sodium +
+    smoking,
+  data = hf
+)`
+    ),
+
+    day(
+      "Stratified Table 1",
+      "Compare clinical characteristics between outcome groups.",
+
+      [
+        "Study stratification in table1.",
+        "Learn how a baseline table can describe characteristics by group.",
+        "Understand that this dataset is observational.",
+        "Do not turn descriptive differences into causal claims.",
+        "Learn why baseline tables should prioritise useful descriptive information over statistical theatre."
+      ],
+
+      [
+        "Create the DEATH_EVENT factor.",
+        "Stratify Table 1 by death event.",
+        "Inspect group sizes.",
+        "Compare continuous-variable summaries.",
+        "Compare categorical-variable proportions.",
+        "Check whether labels remain readable."
+      ],
+
+      [
+        "Create an outcome-stratified Table 1.",
+        "Include an overall column if useful.",
+        "Check sample sizes.",
+        "Check all denominators.",
+        "Identify five notable descriptive differences.",
+        "Write two limitations of comparing survivors and non-survivors."
+      ],
+
+      "You can produce a stratified clinical Table 1 and describe the differences without claiming causality.",
+
+      [RES.table1, RES.heartFailure, RES.r4ds],
+
+      [
+        "r",
+        "table-1",
+        "clinical",
+        "descriptive-statistics",
+        "reporting"
+      ],
+
+`hf$death_event <- factor(
+  hf$DEATH_EVENT,
+  levels = c(0, 1),
+  labels = c(
+    "Survived",
+    "Died"
+  )
 )
 
 table1(
-  ~ age + anaemia + diabetes + ejection_fraction +
-    high_blood_pressure + serum_creatinine |
+  ~ age +
+    anaemia +
+    diabetes +
+    ejection_fraction +
+    high_blood_pressure +
+    serum_creatinine +
+    serum_sodium +
+    smoking |
     death_event,
-  data = heart
+  data = hf
 )`
-  },
+    ),
 
-  {
-    day:3,
-    title:"Clinical comparisons",
-    subtitle:"Compare groups without abusing p-values.",
-    learn:[
-      "Study group comparisons in OpenIntro Statistics.",
-      "Review what a confidence interval communicates.",
-      "Understand that statistical significance is not the same as clinical importance."
-    ],
-    follow:[
-      "Compare age between outcome groups.",
-      "Compare ejection fraction.",
-      "Compare serum creatinine.",
-      "Calculate appropriate descriptive summaries.",
-      "Run an appropriate simple comparison."
-    ],
-    build:[
-      "Create a comparison table.",
-      "Report effect estimates.",
-      "Report confidence intervals where appropriate.",
-      "Use p-values as supporting evidence rather than the headline.",
-      "Write a clinical interpretation."
-    ],
-    done:"Your conclusions distinguish statistical evidence from clinical importance.",
-    resources:[resources.statsFree,resources.table1],
-    tags:["clinical","statistics","comparison"]
-  },
+    day(
+      "Interpretation + clinical reporting",
+      "Turn Table 1 into useful clinical language.",
 
-  {
-    day:4,
-    title:"Clinical plots",
-    subtitle:"Visualize patient characteristics.",
-    learn:[
-      "Read the visualization chapters in R4DS.",
-      "Learn why distribution plots can reveal information hidden by means."
-    ],
-    follow:[
-      "Create a histogram of age.",
-      "Create a boxplot of ejection fraction.",
-      "Create a boxplot of serum creatinine.",
-      "Create a bar chart for diabetes.",
-      "Add meaningful labels."
-    ],
-    build:[
-      "Create a three-figure clinical descriptive panel.",
-      "Choose the most informative variables.",
-      "Write a conclusion beneath each.",
-      "Avoid decorative charts."
-    ],
-    done:"You can look at a plot and describe the distribution rather than just saying 'the graph shows'.",
-    resources:[resources.rFree,resources.rVideo],
-    tags:["r","ggplot","clinical","visualization"]
-  },
+      [
+        "Review your Table 1 output.",
+        "Learn why Table 1 is usually the first descriptive table in clinical research.",
+        "Practise describing who is in the dataset.",
+        "Learn the difference between describing an association and claiming an effect.",
+        "Review why routine baseline p-values are discouraged in randomised trials; focus here on descriptive interpretation because this dataset is observational."
+      ],
 
-  {
-    day:5,
-    title:"Table 1 + descriptive report",
-    subtitle:"Produce a publication-style descriptive section.",
-    learn:[
-      "Review table1.",
-      "Review clinical reporting principles.",
-      "Read the CONSORT/BMJ discussion of baseline characteristics."
-    ],
-    follow:[
-      "Finalize Table 1.",
-      "Check variable labels.",
-      "Check units.",
-      "Check percentages.",
-      "Check missing data."
-    ],
-    build:[
-      "Write a short Methods paragraph.",
-      "Write a Results paragraph.",
-      "Insert Table 1.",
-      "Insert two figures.",
-      "Write one limitation."
-    ],
-    done:"You have something that resembles the descriptive section of a real clinical analysis.",
-    resources:[resources.table1,resources.consort],
-    tags:["table1","clinical","reporting"]
-  }
+      [
+        "Read your Table 1 from top to bottom.",
+        "Check overall N.",
+        "Check each group N.",
+        "Check continuous-variable summaries.",
+        "Check categorical percentages.",
+        "Check labels.",
+        "Identify missing values or unusual denominators."
+      ],
+
+      [
+        "Write a 200-word Table 1 narrative.",
+        "Start by describing the study population.",
+        "Describe the largest clinically relevant differences.",
+        "Avoid causal language.",
+        "State two limitations.",
+        "Explain why the Table 1 is useful before survival analysis."
+      ],
+
+      "You can explain a clinical Table 1 to a reader without making unsupported causal claims.",
+
+      [RES.table1, RES.heartFailure, RES.r4ds],
+
+      [
+        "r",
+        "table-1",
+        "clinical",
+        "reporting",
+        "interpretation"
+      ]
+    )
 
   ]
 },
 
+/* =========================================================
+   WEEK 9
+========================================================= */
+
 {
-  week:9,
-  path:"path2",
-  title:"Survival Analysis — Kaplan–Meier + Log-Rank",
-  description:"Learn the core survival-analysis workflow using the UCI Heart Failure dataset.",
+  path: "r",
 
-  days:[
+  title: "Week 9 — Survival Analysis: Kaplan–Meier + Log-rank",
 
-  {
-    day:1,
-    title:"What survival analysis is",
-    subtitle:"Understand censoring before writing code.",
-    learn:[
-      "Watch the Biostatsquid survival-analysis video.",
-      "Read the Biostatsquid written tutorial.",
-      "Understand time-to-event data and censoring."
-    ],
-    follow:[
-      "Identify the time variable.",
-      "Identify the event variable.",
-      "Explain censoring in your own words.",
-      "Explain why ordinary regression may not be appropriate.",
-      "Identify a possible survival question."
-    ],
-    build:[
-      "Write your clinical survival question.",
-      "Define time zero.",
-      "Define event.",
-      "Define censoring.",
-      "Define the comparison groups."
-    ],
-    done:"You can explain why survival analysis is different from simply comparing death percentages.",
-    resources:[resources.survivalVideo,resources.survivalArticle],
-    tags:["survival","kaplan-meier","clinical"]
-  },
+  description:
+    "Understand censoring, construct survival objects, compare survival curves and interpret results.",
 
-  {
-    day:2,
-    title:"Surv objects + Kaplan–Meier",
-    subtitle:"Fit your first survival curve.",
-    learn:[
-      "Study the survival package documentation.",
-      "Follow the Kaplan–Meier section of the Biostatsquid tutorial.",
-      "Understand Surv() and survfit()."
-    ],
-    follow:[
-      "Install survival.",
-      "Load survival.",
-      "Create a Surv object.",
-      "Fit survfit().",
-      "Print the model.",
-      "Inspect survival probabilities."
-    ],
-    build:[
-      "Create a Kaplan–Meier estimate for the full cohort.",
-      "Plot the curve.",
-      "Label time.",
-      "Label survival probability.",
-      "Describe the curve."
-    ],
-    done:"You can create a Surv object and fit a Kaplan–Meier curve.",
-    resources:[resources.survival,resources.survivalVideo],
-    tags:["survival","kaplan-meier","r"],
-    code:
+  days: [
+
+    day(
+      "Censoring + time-to-event intuition",
+      "Understand why survival analysis differs from ordinary outcome analysis.",
+
+      [
+        "Watch the Biostatsquid survival analysis video.",
+        "Read the written survival tutorial.",
+        "Learn event time, censoring and follow-up."
+      ],
+
+      [
+        "Define time.",
+        "Define event.",
+        "Identify censored observations.",
+        "Explain a patient with event = 0.",
+        "Draw a patient timeline."
+      ],
+
+      [
+        "Create three hypothetical patient timelines.",
+        "Label event/censored status.",
+        "Explain why follow-up time matters.",
+        "Write a paragraph defining survival time."
+      ],
+
+      "You can explain censoring and time-to-event data in plain language.",
+
+      [RES.survivalVideo, RES.survivalGuide, RES.survival],
+
+      ["r", "survival", "censoring"]
+    ),
+
+    day(
+      "Surv object + Kaplan–Meier",
+      "Construct and fit the basic survival model.",
+
+      [
+        "Read the survival package documentation.",
+        "Follow the Kaplan–Meier section of the survival tutorial.",
+        "Learn what a survival curve represents."
+      ],
+
+      [
+        "Load survival.",
+        "Create a Surv object.",
+        "Fit survfit.",
+        "Inspect the fitted object.",
+        "Check event counts.",
+        "Check follow-up time."
+      ],
+
+      [
+        "Create the Heart Failure survival object.",
+        "Fit an overall Kaplan–Meier curve.",
+        "Inspect the result.",
+        "Record event counts.",
+        "Write what the curve represents."
+      ],
+
+      "You can create a Surv object and fit a Kaplan–Meier estimator.",
+
+      [RES.survival, RES.survivalGuide],
+
+      ["r", "survival", "Kaplan-Meier"],
+
 `library(survival)
 
 surv_obj <- Surv(
-  time = heart$time,
-  event = heart$DEATH_EVENT
+  time = hf$time,
+  event = hf$DEATH_EVENT
 )
-
-km_fit <- survfit(surv_obj ~ 1, data = heart)
-
-summary(km_fit)`
-  },
-
-  {
-    day:3,
-    title:"Kaplan–Meier by group",
-    subtitle:"Compare survival experiences between groups.",
-    learn:[
-      "Continue the survival-analysis video.",
-      "Study survfit() with a grouping variable.",
-      "Understand that curves describe time-to-event patterns."
-    ],
-    follow:[
-      "Choose a clinically meaningful binary variable.",
-      "Fit separate Kaplan–Meier curves.",
-      "Plot both groups.",
-      "Add confidence intervals.",
-      "Add a legend.",
-      "Interpret the visual difference."
-    ],
-    build:[
-      "Create a publication-style KM plot.",
-      "Use a meaningful group.",
-      "Label groups clearly.",
-      "Add confidence intervals.",
-      "Add a risk table if appropriate.",
-      "Write a plain-English interpretation."
-    ],
-    done:"You can explain what the two curves represent and identify where they differ.",
-    resources:[resources.survminer,resources.survivalVideo],
-    tags:["kaplan-meier","survminer","clinical"],
-    code:
-`library(survival)
-library(survminer)
 
 km_fit <- survfit(
-  Surv(time, DEATH_EVENT) ~ diabetes,
-  data = heart
+  surv_obj ~ 1,
+  data = hf
 )
+
+summary(
+  km_fit
+)`
+    ),
+
+    day(
+      "Plot Kaplan–Meier with survminer",
+      "Make the survival result readable.",
+
+      [
+        "Read ggsurvplot documentation.",
+        "Watch the plotting section of the survival video.",
+        "Learn the role of confidence intervals and risk tables."
+      ],
+
+      [
+        "Load survminer.",
+        "Plot the KM curve.",
+        "Add confidence interval.",
+        "Add risk table.",
+        "Add axis labels.",
+        "Inspect the figure."
+      ],
+
+      [
+        "Create the final overall KM plot.",
+        "Use a clear title.",
+        "Label time and survival probability.",
+        "Include confidence interval.",
+        "Include risk table.",
+        "Write two sentences interpreting the curve."
+      ],
+
+      "You can produce a readable Kaplan–Meier figure suitable for a report.",
+
+      [RES.survminer, RES.survivalVideo],
+
+      ["r", "Kaplan-Meier", "survminer", "plot"],
+
+`library(survminer)
 
 ggsurvplot(
   km_fit,
-  data = heart,
-  risk.table = TRUE,
+  data = hf,
   conf.int = TRUE,
-  pval = TRUE
+  risk.table = TRUE,
+  xlab = "Follow-up time",
+  ylab = "Survival probability"
 )`
-  },
+    ),
 
-  {
-    day:4,
-    title:"Log-rank test",
-    subtitle:"Statistically compare survival curves.",
-    learn:[
-      "Study the log-rank section of the survival tutorial.",
-      "Understand the question the log-rank test answers.",
-      "Do not treat the p-value as the entire analysis."
-    ],
-    follow:[
-      "Run survdiff().",
-      "Inspect the result.",
-      "Calculate or inspect the p-value.",
-      "Compare it with the KM plot.",
-      "Write the null hypothesis."
-    ],
-    build:[
-      "Run a log-rank comparison.",
-      "Report the groups.",
-      "Report the statistical result.",
-      "Describe the curve difference.",
-      "State one limitation."
-    ],
-    done:"You can explain the relationship between the KM curve and log-rank test.",
-    resources:[resources.survivalVideo,resources.survivalArticle],
-    tags:["log-rank","survival","statistics"],
-    code:
-`logrank <- survdiff(
-  Surv(time, DEATH_EVENT) ~ diabetes,
-  data = heart
+    day(
+      "Log-rank test",
+      "Compare survival curves between groups.",
+
+      [
+        "Study the log-rank section of the survival tutorial.",
+        "Understand that the log-rank test compares survival experience across follow-up.",
+        "Learn to report the test alongside the curves."
+      ],
+
+      [
+        "Create a binary grouping variable.",
+        "Fit group-specific KM curves.",
+        "Plot both groups.",
+        "Run survdiff.",
+        "Inspect the p-value.",
+        "Compare group sizes."
+      ],
+
+      [
+        "Use median serum creatinine as an exploratory threshold.",
+        "Plot high versus low groups.",
+        "Run the log-rank test.",
+        "Report group sizes.",
+        "Write a cautious interpretation."
+      ],
+
+      "You can run and explain a log-rank comparison without claiming causality.",
+
+      [RES.survival, RES.survivalGuide],
+
+      ["r", "log-rank", "survival"],
+
+`hf$high_creatinine <- ifelse(
+  hf$serum_creatinine >=
+    median(
+      hf$serum_creatinine
+    ),
+  "High",
+  "Low"
 )
 
-logrank`
-  },
-
-  {
-    day:5,
-    title:"Survival analysis mini-report",
-    subtitle:"Combine Kaplan–Meier and log-rank.",
-    learn:[
-      "Review the survival tutorial.",
-      "Read your own code line-by-line.",
-      "Focus on interpretation."
-    ],
-    follow:[
-      "Run the analysis from a fresh script.",
-      "Check the event variable.",
-      "Check time units.",
-      "Check group coding.",
-      "Check the plot."
-    ],
-    build:[
-      "Create a one-page survival report.",
-      "State the research question.",
-      "Show KM curve.",
-      "Report log-rank result.",
-      "Interpret clinically.",
-      "State limitations."
-    ],
-    done:"You have a complete beginner-level survival analysis that someone else can understand.",
-    resources:[resources.survivalArticle,resources.survminer],
-    tags:["survival","reporting","clinical"]
-  }
-
-  ]
-},
-
-{
-  week:10,
-  path:"path2",
-  title:"Cox Proportional Hazards",
-  description:"Move from descriptive survival curves to an adjusted time-to-event model.",
-
-  days:[
-
-  {
-    day:1,
-    title:"Why Cox regression?",
-    subtitle:"Understand the purpose before fitting the model.",
-    learn:[
-      "Watch the Cox regression portion of the Biostatsquid video.",
-      "Read the survival package documentation.",
-      "Understand hazard and hazard ratio conceptually."
-    ],
-    follow:[
-      "Define hazard in plain English.",
-      "Define hazard ratio.",
-      "Compare hazard ratio with risk ratio.",
-      "Understand crude versus adjusted analysis.",
-      "Choose one clinical question."
-    ],
-    build:[
-      "Write a Cox model plan.",
-      "Define outcome.",
-      "Define time.",
-      "Define primary predictor.",
-      "List potential covariates."
-    ],
-    done:"You can explain a hazard ratio without calling it a probability of death.",
-    resources:[resources.survivalVideo,resources.survival],
-    tags:["cox","hazard-ratio","survival"]
-  },
-
-  {
-    day:2,
-    title:"First Cox model",
-    subtitle:"Fit an unadjusted Cox model.",
-    learn:[
-      "Follow the Cox section of the survival tutorial.",
-      "Study coxph().",
-      "Understand exp(coef)."
-    ],
-    follow:[
-      "Fit coxph().",
-      "View the model summary.",
-      "Locate coefficient.",
-      "Locate hazard ratio.",
-      "Locate confidence interval.",
-      "Locate p-value."
-    ],
-    build:[
-      "Fit one unadjusted Cox model.",
-      "Extract the hazard ratio.",
-      "Report 95% CI.",
-      "Interpret it.",
-      "Compare the result with the KM analysis."
-    ],
-    done:"You can fit and interpret a basic Cox model.",
-    resources:[resources.survival,resources.survivalVideo],
-    tags:["cox","r","survival"],
-    code:
-`cox1 <- coxph(
-  Surv(time, DEATH_EVENT) ~ diabetes,
-  data = heart
+fit_group <- survfit(
+  surv_obj ~ high_creatinine,
+  data = hf
 )
 
-summary(cox1)`
-  },
+survdiff(
+  surv_obj ~ high_creatinine,
+  data = hf
+)`
+    ),
 
-  {
-    day:3,
-    title:"Adjusted Cox model",
-    subtitle:"Add clinically relevant covariates.",
-    learn:[
-      "Study multiple-predictor Cox regression.",
-      "Understand confounding at a conceptual level.",
-      "Do not blindly add every variable."
-    ],
-    follow:[
-      "Choose covariates.",
-      "Fit the adjusted model.",
-      "Compare crude and adjusted estimates.",
-      "Inspect confidence intervals.",
-      "Interpret one adjusted hazard ratio."
-    ],
-    build:[
-      "Fit an adjusted model.",
-      "Use age and at least two clinical variables.",
-      "Create a results table.",
-      "Compare crude versus adjusted.",
-      "Explain one difference."
-    ],
-    done:"You can explain what adjustment changes and why.",
-    resources:[resources.survivalArticle,resources.survival],
-    tags:["cox","adjustment","clinical"]
-  },
+    day(
+      "Interpret Kaplan–Meier results",
+      "Turn curves and tests into clinical language.",
 
-  {
-    day:4,
-    title:"Proportional hazards assumption",
-    subtitle:"Check whether your Cox model is appropriate.",
-    learn:[
-      "Study the proportional hazards assumption.",
-      "Learn cox.zph().",
-      "Understand why model diagnostics matter."
-    ],
-    follow:[
-      "Run cox.zph().",
-      "Inspect the results.",
-      "Create a diagnostic plot if useful.",
-      "Identify potential violations.",
-      "Write a conclusion."
-    ],
-    build:[
-      "Add PH assumption checking to your analysis.",
-      "Document the result.",
-      "State whether the assumption appears reasonable.",
-      "Explain what you would do if it failed."
-    ],
-    done:"You understand that a Cox model requires an assumption check.",
-    resources:[resources.survival,resources.survivalVideo],
-    tags:["cox","diagnostics","statistics"]
-  },
+      [
+        "Review Kaplan–Meier, confidence intervals and log-rank interpretation.",
+        "Focus on what the data support.",
+        "Practise describing patterns rather than declaring causes."
+      ],
 
-  {
-    day:5,
-    title:"Cox model results table",
-    subtitle:"Turn model output into readable evidence.",
-    learn:[
-      "Review clinical reporting examples.",
-      "Review hazard ratios and confidence intervals.",
-      "Practice writing results without copying statistical software output."
-    ],
-    follow:[
-      "Extract HR.",
-      "Extract CI.",
-      "Extract p-value.",
-      "Format the numbers.",
-      "Write one interpretation."
-    ],
-    build:[
-      "Create a clean Cox results table.",
-      "Include variable.",
-      "Include HR.",
-      "Include 95% CI.",
-      "Include p-value.",
-      "Add a short interpretation."
-    ],
-    done:"Your table looks like something a clinical analyst could hand to a researcher.",
-    resources:[resources.survival,resources.consort],
-    tags:["cox","reporting","clinical"]
-  }
+      [
+        "Read the curves.",
+        "Read the risk table.",
+        "Read event counts.",
+        "Read the log-rank result.",
+        "Check group sizes.",
+        "Write a concise interpretation."
+      ],
+
+      [
+        "Write a 150-word survival-results paragraph.",
+        "State groups and follow-up.",
+        "State the curve pattern.",
+        "State the log-rank result.",
+        "State one limitation.",
+        "Avoid causal language."
+      ],
+
+      "You can explain a Kaplan–Meier comparison to a reader who is not a statistician.",
+
+      [RES.survivalGuide, RES.survminer],
+
+      ["r", "survival", "interpretation", "reporting"]
+    )
 
   ]
 },
 
+/* =========================================================
+   WEEK 10
+========================================================= */
+
 {
-  week:11,
-  path:"path2",
-  title:"Clinical Research Workflow + Reporting",
-  description:"Learn how statistical analysis fits into a real clinical research workflow.",
+  path: "r",
 
-  days:[
+  title: "Week 10 — Cox Proportional Hazards Regression",
 
-  {
-    day:1,
-    title:"Research question → analysis plan",
-    subtitle:"Start with the clinical question.",
-    learn:[
-      "Review CONSORT/BMJ reporting principles.",
-      "Understand why the analysis should follow the research question.",
-      "Learn primary outcome, exposure and covariates."
-    ],
-    follow:[
-      "Write research question.",
-      "Define population.",
-      "Define exposure.",
-      "Define outcome.",
-      "Define follow-up.",
-      "Define primary analysis."
-    ],
-    build:[
-      "Write a one-page statistical analysis plan.",
-      "State descriptive analysis.",
-      "State survival analysis.",
-      "State adjusted analysis.",
-      "State assumptions.",
-      "State limitations."
-    ],
-    done:"You have a plan that could be written before looking at the results.",
-    resources:[resources.consort,resources.rFree],
-    tags:["clinical","research","analysis-plan"]
-  },
+  description:
+    "Fit an adjusted survival model and interpret hazard ratios, confidence intervals and proportional-hazards diagnostics.",
 
-  {
-    day:2,
-    title:"Reproducible R workflow",
-    subtitle:"Make your analysis rerunnable.",
-    learn:[
-      "Read R4DS workflow/project chapters.",
-      "Understand project folders and scripts.",
-      "Learn why reproducibility matters."
-    ],
-    follow:[
-      "Create project folders.",
-      "Separate raw data from outputs.",
-      "Create an R script.",
-      "Create a results folder.",
-      "Create a figures folder.",
-      "Run the script from top to bottom."
-    ],
-    build:[
-      "Reorganize your project.",
-      "Create a clean analysis script.",
-      "Create a data dictionary.",
-      "Add comments.",
-      "Make the project reproducible."
-    ],
-    done:"You can explain where data, scripts, tables and figures live.",
-    resources:[resources.rFree,resources.rCrash],
-    tags:["r","reproducibility","workflow"]
-  },
+  days: [
 
-  {
-    day:3,
-    title:"Table 1 + KM + Cox",
-    subtitle:"Connect the complete workflow.",
-    learn:[
-      "Review table1.",
-      "Review KM and Cox.",
-      "Do not learn a new statistical method today."
-    ],
-    follow:[
-      "Generate Table 1.",
-      "Generate KM curve.",
-      "Run log-rank.",
-      "Fit Cox model.",
-      "Check PH assumption."
-    ],
-    build:[
-      "Create one integrated analysis script.",
-      "Make every output reproducible.",
-      "Create a final table folder.",
-      "Create a final figures folder.",
-      "Document analysis decisions."
-    ],
-    done:"You can run the complete clinical analysis pipeline in one project.",
-    resources:[resources.table1,resources.survival],
-    tags:["clinical","table1","kaplan-meier","cox"]
-  },
+    day(
+      "Hazard + hazard ratio intuition",
+      "Understand what Cox regression estimates.",
 
-  {
-    day:4,
-    title:"Clinical results writing",
-    subtitle:"Write what the analysis actually found.",
-    learn:[
-      "Read the CONSORT/BMJ reporting guidance.",
-      "Review your tables and figures.",
-      "Learn the difference between Results and Discussion."
-    ],
-    follow:[
-      "Write the cohort description.",
-      "Write Table 1 findings.",
-      "Write KM findings.",
-      "Write Cox findings.",
-      "Write limitations."
-    ],
-    build:[
-      "Create a two-page Results section.",
-      "Insert Table 1.",
-      "Insert KM figure.",
-      "Insert Cox table.",
-      "Add concise interpretations."
-    ],
-    done:"The Results section describes findings without inventing causal claims.",
-    resources:[resources.consort,resources.table1],
-    tags:["clinical","writing","reporting"]
-  },
+      [
+        "Study the Cox regression section of the survival tutorial.",
+        "Learn hazard as an instantaneous event-rate concept.",
+        "Understand the meaning of a hazard ratio."
+      ],
 
-  {
-    day:5,
-    title:"Clinical research mock review",
-    subtitle:"Pretend another analyst is reviewing your work.",
-    learn:[
-      "Do not watch new material.",
-      "Read your entire analysis as a skeptical reviewer.",
-      "Look for unexplained decisions."
-    ],
-    follow:[
-      "Check variable definitions.",
-      "Check missing values.",
-      "Check censoring.",
-      "Check model assumptions.",
-      "Check interpretation."
-    ],
-    build:[
-      "Create a reviewer checklist.",
-      "Identify three weaknesses.",
-      "Fix the weaknesses.",
-      "Document remaining limitations.",
-      "Save the revised project."
-    ],
-    done:"You can identify weaknesses in your own analysis rather than assuming software output is correct.",
-    resources:[resources.consort,resources.survival],
-    tags:["clinical","quality-control","review"]
-  }
+      [
+        "Define hazard in your own words.",
+        "Define HR > 1.",
+        "Define HR < 1.",
+        "Define HR = 1.",
+        "Explain an adjusted association."
+      ],
+
+      [
+        "Write five example HR interpretations.",
+        "Use hypothetical values.",
+        "Distinguish HR from risk ratio.",
+        "List two reasons HR interpretation can be misunderstood."
+      ],
+
+      "You can explain a hazard ratio without describing it as a simple percent chance of death.",
+
+      [RES.survivalGuide, RES.survivalVideo],
+
+      ["r", "Cox", "hazard-ratio"]
+    ),
+
+    day(
+      "Fit a Cox model",
+      "Build an adjusted survival model.",
+
+      [
+        "Follow the Cox model section of the survival tutorial.",
+        "Read survival::coxph documentation if needed.",
+        "Choose predictors based on the research question."
+      ],
+
+      [
+        "Fit coxph.",
+        "Inspect summary.",
+        "Identify coefficients.",
+        "Convert coefficients to HRs.",
+        "Inspect standard errors.",
+        "Check model sample size."
+      ],
+
+      [
+        "Fit a Cox model using age.",
+        "Add ejection fraction.",
+        "Add serum creatinine.",
+        "Add smoking.",
+        "Extract HRs.",
+        "Record 95% CIs.",
+        "Write a first-pass interpretation."
+      ],
+
+      "You can fit and inspect a Cox proportional-hazards model.",
+
+      [RES.survival, RES.survivalGuide],
+
+      ["r", "Cox", "coxph"],
+
+`cox_fit <- coxph(
+  surv_obj ~
+    age +
+    ejection_fraction +
+    serum_creatinine +
+    smoking,
+  data = hf
+)
+
+summary(
+  cox_fit
+)
+
+exp(
+  cbind(
+    HR = coef(cox_fit),
+    confint(cox_fit)
+  )
+)`
+    ),
+
+    day(
+      "HR + CI + p-value reporting",
+      "Report model results correctly.",
+
+      [
+        "Review confidence intervals and statistical uncertainty.",
+        "Learn why the CI is often more informative than a p-value alone.",
+        "Practise reporting HR, 95% CI and context together."
+      ],
+
+      [
+        "Extract HRs.",
+        "Extract CIs.",
+        "Identify uncertain estimates.",
+        "Check direction.",
+        "Check units/scales.",
+        "Write one interpretation per predictor."
+      ],
+
+      [
+        "Create a clean model-results table.",
+        "Round sensibly.",
+        "Add variable labels.",
+        "Write a results paragraph.",
+        "Avoid causal verbs."
+      ],
+
+      "You can turn Cox output into a readable results table and paragraph.",
+
+      [RES.survival, RES.openIntro],
+
+      ["r", "Cox", "HR", "confidence-interval"],
+
+`hr_table <- exp(
+  cbind(
+    HR = coef(cox_fit),
+    confint(cox_fit)
+  )
+)
+
+round(
+  hr_table,
+  2
+)`
+    ),
+
+    day(
+      "Proportional hazards diagnostic",
+      "Check a key Cox assumption.",
+
+      [
+        "Study proportional hazards in the survival tutorial.",
+        "Learn what cox.zph tests conceptually.",
+        "Understand that diagnostics are evidence to investigate."
+      ],
+
+      [
+        "Run cox.zph.",
+        "Inspect test output.",
+        "Review suspicious variables.",
+        "Plot diagnostics.",
+        "Decide whether interpretation needs qualification."
+      ],
+
+      [
+        "Run the proportional-hazards diagnostic.",
+        "Document any concern.",
+        "Decide whether the model is acceptable.",
+        "Write a model limitations paragraph.",
+        "Save the diagnostic output."
+      ],
+
+      "You can perform and discuss a proportional-hazards diagnostic.",
+
+      [RES.survival, RES.survivalGuide],
+
+      ["r", "Cox", "proportional-hazards", "diagnostics"],
+
+`ph_test <- cox.zph(
+  cox_fit
+)
+
+print(
+  ph_test
+)
+
+plot(
+  ph_test
+)`
+    ),
+
+    day(
+      "Final adjusted model",
+      "Decide what belongs in the final report.",
+
+      [
+        "Review the entire Cox workflow.",
+        "Compare candidate models.",
+        "Choose a final model based on the research question and defensibility."
+      ],
+
+      [
+        "Review predictors.",
+        "Review missingness.",
+        "Review model output.",
+        "Review HRs and CIs.",
+        "Review proportional-hazards diagnostics.",
+        "Document final choices."
+      ],
+
+      [
+        "Create the final adjusted model.",
+        "Create a final HR table.",
+        "Write a 200-word interpretation.",
+        "List model limitations.",
+        "Explain what the model cannot establish."
+      ],
+
+      "You can defend your final Cox model and explain its limitations.",
+
+      [RES.survival, RES.survivalGuide],
+
+      ["r", "Cox", "clinical", "reporting"]
+    )
 
   ]
 },
 
+/* =========================================================
+   WEEK 11
+========================================================= */
+
 {
-  week:12,
-  path:"path2",
-  title:"Path 2 Capstone — Clinical Research Analysis",
-  description:"Complete a reproducible clinical research case study using the UCI Heart Failure dataset.",
+  path: "r",
 
-  days:[
+  title: "Week 11 — Clinical Research Reporting",
 
-  {
-    day:1,
-    title:"Define the clinical question",
-    subtitle:"Build the project around a research question.",
-    learn:[
-      "Review the clinical research workflow.",
-      "Choose a question that can actually be answered by the UCI dataset.",
-      "Avoid causal claims that the observational dataset cannot support."
-    ],
-    follow:[
-      "Define population.",
-      "Define exposure/group.",
-      "Define outcome.",
-      "Define follow-up.",
-      "Define primary question."
-    ],
-    build:[
-      "Create the project README.",
-      "Write the research question.",
-      "Write analysis objectives.",
-      "Write data source.",
-      "Write limitations."
-    ],
-    done:"Your research question is specific, measurable and answerable with the available variables.",
-    resources:[resources.uciHeart,resources.consort],
-    tags:["capstone","clinical","research"]
-  },
+  description:
+    "Move from statistical output to a clean, clinically understandable analysis package.",
 
-  {
-    day:2,
-    title:"Table 1",
-    subtitle:"Describe the cohort.",
-    learn:[
-      "Review table1.",
-      "Review baseline descriptive statistics.",
-      "Focus on clinically meaningful variables."
-    ],
-    follow:[
-      "Generate Table 1.",
-      "Check labels.",
-      "Check units.",
-      "Check percentages.",
-      "Check missingness."
-    ],
-    build:[
-      "Finalize Table 1.",
-      "Add a table caption.",
-      "Add explanatory notes.",
-      "Write a cohort description.",
-      "Save the output."
-    ],
-    done:"A researcher can understand who is in your dataset from Table 1.",
-    resources:[resources.table1,resources.consort],
-    tags:["capstone","table1","clinical"]
-  },
+  days: [
 
-  {
-    day:3,
-    title:"Kaplan–Meier + log-rank",
-    subtitle:"Answer the time-to-event question.",
-    learn:[
-      "Review the survival tutorial.",
-      "Review your Week 9 analysis.",
-      "Focus on correct interpretation."
-    ],
-    follow:[
-      "Create Surv object.",
-      "Fit KM curves.",
-      "Add confidence intervals.",
-      "Add risk table.",
-      "Run log-rank."
-    ],
-    build:[
-      "Finalize KM figure.",
-      "Write figure caption.",
-      "Report log-rank result.",
-      "Interpret the result.",
-      "State limitation."
-    ],
-    done:"Your KM analysis is reproducible and clinically interpretable.",
-    resources:[resources.survminer,resources.survivalVideo],
-    tags:["capstone","kaplan-meier","log-rank"]
-  },
+    day(
+      "Protocol + research question",
+      "Frame a clinical analysis before opening the results.",
 
-  {
-    day:4,
-    title:"Adjusted Cox analysis",
-    subtitle:"Complete the modeling component.",
-    learn:[
-      "Review Cox regression.",
-      "Review PH assumptions.",
-      "Focus on interpretation and limitations."
-    ],
-    follow:[
-      "Fit crude Cox model.",
-      "Fit adjusted Cox model.",
-      "Extract HRs.",
-      "Check confidence intervals.",
-      "Check proportional hazards."
-    ],
-    build:[
-      "Finalize Cox results table.",
-      "Write interpretation.",
-      "Compare crude and adjusted results.",
-      "Document assumptions.",
-      "Document limitations."
-    ],
-    done:"You have a complete adjusted survival model with documented diagnostics.",
-    resources:[resources.survival,resources.survivalArticle],
-    tags:["capstone","cox","survival"]
-  },
+      [
+        "Read the Heart Failure dataset documentation again.",
+        "Learn the difference between research question, population, exposure and outcome.",
+        "Write the question before choosing tests."
+      ],
 
-  {
-    day:5,
-    title:"Path 2 final assessment",
-    subtitle:"Complete the clinical research case study and compare both paths.",
-    learn:[
-      "Do not learn new material.",
-      "Review the complete project.",
-      "Think honestly about whether this kind of work interests you."
-    ],
-    follow:[
-      "Run the entire R project.",
-      "Check Table 1.",
-      "Check KM.",
-      "Check Cox.",
-      "Check writing."
-    ],
-    build:[
-      "Create a final 6–8 page report.",
-      "Introduction.",
-      "Methods.",
-      "Table 1.",
-      "KM figure.",
-      "Cox results.",
-      "Limitations.",
-      "Conclusion."
-    ],
-    done:"You have a complete beginner-level clinical research analysis that demonstrates an end-to-end workflow.",
-    resources:[resources.uciHeart,resources.consort],
-    tags:["capstone","clinical","assessment","career"]
-  }
+      [
+        "Define population.",
+        "Define exposure/group.",
+        "Define outcome.",
+        "Define follow-up time.",
+        "Define primary analysis.",
+        "List limitations."
+      ],
+
+      [
+        "Write a one-page protocol.",
+        "State one primary question.",
+        "State one primary outcome.",
+        "Define the comparison.",
+        "Specify Table 1 + KM/log-rank + Cox.",
+        "State that the dataset is observational."
+      ],
+
+      "You can describe exactly what your clinical analysis is trying to estimate.",
+
+      [RES.heartFailure, RES.r4ds],
+
+      ["clinical", "protocol", "research-question"]
+    ),
+
+    day(
+      "Baseline Table 1",
+      "Build the table that lets a reader understand the study population.",
+
+      [
+        "Read the table1 documentation.",
+        "Review why baseline tables matter.",
+        "Learn that a Table 1 describes the sample and helps readers understand who was studied.",
+        "Focus on useful descriptive summaries."
+      ],
+
+      [
+        "Define baseline variables.",
+        "Choose continuous summaries.",
+        "Choose categorical summaries.",
+        "Stratify appropriately.",
+        "Check labels.",
+        "Review formatting."
+      ],
+
+      [
+        "Produce the final Table 1.",
+        "Include overall and outcome-stratified summaries.",
+        "Check sample counts.",
+        "Check units.",
+        "Write a two-paragraph interpretation."
+      ],
+
+      "Your Table 1 is readable to a clinician without opening your code.",
+
+      [RES.table1, RES.heartFailure],
+
+      ["clinical", "Table-1", "reporting"]
+    ),
+
+    day(
+      "Figure + table QC",
+      "Learn the quality-control habits that prevent errors.",
+
+      [
+        "Review your Table 1 and KM outputs.",
+        "Learn to cross-check N, event counts, labels and denominators.",
+        "Treat every figure and table as a deliverable requiring QA."
+      ],
+
+      [
+        "Check total N.",
+        "Check event N.",
+        "Check group N.",
+        "Check time units.",
+        "Check axis labels.",
+        "Cross-check one result against raw data."
+      ],
+
+      [
+        "Perform a formal QC pass.",
+        "Create a checklist.",
+        "Find at least three possible errors or ambiguities.",
+        "Fix them.",
+        "Record the checks completed."
+      ],
+
+      "You can verify a statistical output rather than assuming software output is correct.",
+
+      [RES.table1, RES.survminer, RES.heartFailure],
+
+      ["clinical", "QC", "reporting"]
+    ),
+
+    day(
+      "Methods + Results writing",
+      "Write statistical findings without hiding behind software output.",
+
+      [
+        "Review survival-analysis reporting examples.",
+        "Learn how Methods describe what was done.",
+        "Learn how Results describe what was found.",
+        "Practise concise statistical language."
+      ],
+
+      [
+        "Write the dataset paragraph.",
+        "Write variable definitions.",
+        "Write statistical methods.",
+        "Write Table 1 description.",
+        "Write KM/log-rank paragraph.",
+        "Write Cox paragraph."
+      ],
+
+      [
+        "Draft a 500–700 word mini-report.",
+        "Include Methods and Results.",
+        "Report estimates with CIs.",
+        "Include sample and event counts.",
+        "Separate findings from interpretation."
+      ],
+
+      "Your report can be understood without screenshots of R output.",
+
+      [RES.survivalGuide, RES.r4ds],
+
+      ["clinical", "methods", "results", "writing"]
+    ),
+
+    day(
+      "Clinical presentation",
+      "Communicate evidence to a mixed audience.",
+
+      [
+        "Review your reporting draft.",
+        "Practise explaining survival curves without excessive statistical jargon.",
+        "Focus on clinical meaning and uncertainty."
+      ],
+
+      [
+        "Write the clinical question.",
+        "Create three evidence slides.",
+        "Add Table 1.",
+        "Add KM plot.",
+        "Add Cox results.",
+        "Add limitations."
+      ],
+
+      [
+        "Build a six-slide mini presentation.",
+        "Question and population.",
+        "Baseline Table 1.",
+        "KM/log-rank.",
+        "Adjusted Cox.",
+        "Interpretation.",
+        "Limitations and next steps."
+      ],
+
+      "You can explain the study to a clinician, analyst and manager using the same core evidence.",
+
+      [RES.table1, RES.survminer],
+
+      ["clinical", "presentation", "storytelling"]
+    )
+
+  ]
+},
+
+/* =========================================================
+   WEEK 12
+========================================================= */
+
+{
+  path: "r",
+
+  title: "Week 12 — Path 2 Capstone",
+
+  description:
+    "Complete a mini clinical research analysis from question and Table 1 through survival analysis and final reporting.",
+
+  days: [
+
+    day(
+      "Capstone question + analysis plan",
+      "Define the final clinical research question.",
+
+      [
+        "Review Weeks 8–11.",
+        "Use the UCI variable definitions.",
+        "Keep the question answerable using the available variables."
+      ],
+
+      [
+        "Define population.",
+        "Define primary outcome.",
+        "Define exposure/group.",
+        "Choose descriptive variables.",
+        "Specify survival analysis.",
+        "Specify Cox covariates."
+      ],
+
+      [
+        "Write the final protocol.",
+        "State one primary question.",
+        "State one primary hypothesis.",
+        "Define all variables.",
+        "State observational limitations.",
+        "Create a checklist of final outputs."
+      ],
+
+      "You have a reproducible plan before producing final results.",
+
+      [RES.heartFailure, RES.survivalGuide],
+
+      ["capstone", "clinical", "research-question"]
+    ),
+
+    day(
+      "Analysis dataset + master script",
+      "Create the final reproducible R workflow.",
+
+      [
+        "Review R4DS import and transformation workflow.",
+        "Start a clean script rather than copying a messy practice file.",
+        "Organise the script into setup, data, Table 1, survival, Cox and export sections."
+      ],
+
+      [
+        "Load packages.",
+        "Import data.",
+        "Create labels.",
+        "Create survival object.",
+        "Create analysis variables.",
+        "Save the script."
+      ],
+
+      [
+        "Build one master R script from raw CSV to final outputs.",
+        "Add section headers.",
+        "Add comments for decisions.",
+        "Add validation checks.",
+        "Run the whole script from top to bottom."
+      ],
+
+      "Your final script runs from raw data to analysis outputs in one pass.",
+
+      [
+        RES.r4ds,
+        RES.heartFailure,
+        RES.survival,
+        RES.table1
+      ],
+
+      ["capstone", "R", "reproducibility"],
+
+`library(tidyverse)
+library(table1)
+library(survival)
+library(survminer)
+
+hf <- read_csv(
+  "heart_failure_clinical_records_dataset.csv"
+)
+
+hf$death_event <- factor(
+  hf$DEATH_EVENT,
+  levels = c(0, 1),
+  labels = c(
+    "Survived",
+    "Died"
+  )
+)
+
+surv_obj <- Surv(
+  hf$time,
+  hf$DEATH_EVENT
+)`
+    ),
+
+    day(
+      "KM + log-rank + Cox",
+      "Complete the inferential analysis.",
+
+      [
+        "Review the survival tutorial.",
+        "Re-run the analysis from the master script.",
+        "Check group definitions and sample sizes before interpreting."
+      ],
+
+      [
+        "Fit KM.",
+        "Plot KM.",
+        "Run log-rank.",
+        "Fit Cox.",
+        "Extract HRs and CIs.",
+        "Run PH diagnostic."
+      ],
+
+      [
+        "Create the final KM figure.",
+        "Create the final log-rank comparison.",
+        "Create the final Cox table.",
+        "Check diagnostics.",
+        "Write the main result in plain language."
+      ],
+
+      "All core survival analyses are complete and internally consistent.",
+
+      [
+        RES.survivalVideo,
+        RES.survminer,
+        RES.survival
+      ],
+
+      ["capstone", "survival", "Cox"],
+
+`hf$high_creatinine <- ifelse(
+  hf$serum_creatinine >=
+    median(
+      hf$serum_creatinine
+    ),
+  "High",
+  "Low"
+)
+
+fit_group <- survfit(
+  surv_obj ~ high_creatinine,
+  data = hf
+)
+
+ggsurvplot(
+  fit_group,
+  data = hf,
+  conf.int = TRUE,
+  risk.table = TRUE,
+  pval = TRUE
+)
+
+cox_fit <- coxph(
+  surv_obj ~
+    age +
+    ejection_fraction +
+    serum_creatinine +
+    smoking,
+  data = hf
+)
+
+summary(
+  cox_fit
+)
+
+cox.zph(
+  cox_fit
+)`
+    ),
+
+    day(
+      "Table 1 + final results",
+      "Assemble the evidence package.",
+
+      [
+        "Review table1 and your final survival outputs.",
+        "Cross-check every number against the master script.",
+        "Make tables publication-style and readable."
+      ],
+
+      [
+        "Generate Table 1.",
+        "Generate KM figure.",
+        "Generate Cox table.",
+        "Check N and events.",
+        "Check labels and units.",
+        "Save outputs."
+      ],
+
+      [
+        "Produce final Table 1.",
+        "Produce final KM figure.",
+        "Produce final Cox results table.",
+        "Write a concise Results section.",
+        "Write limitations.",
+        "Prepare an appendix with analysis details."
+      ],
+
+      "Your final evidence package contains a baseline table, survival figure and adjusted model results.",
+
+      [
+        RES.table1,
+        RES.survminer,
+        RES.survival
+      ],
+
+      ["capstone", "Table-1", "results"]
+    ),
+
+    day(
+      "Final mini-report + presentation",
+      "Finish the full clinical research workflow.",
+
+      [
+        "Review the entire project.",
+        "Practise presenting without reading code.",
+        "Focus on question → population → evidence → interpretation → limitations."
+      ],
+
+      [
+        "Proofread Methods.",
+        "Proofread Results.",
+        "Check every table and figure.",
+        "Practise a five-minute talk.",
+        "Prepare answers to five likely questions."
+      ],
+
+      [
+        "Complete the final mini-report.",
+        "Complete the six-slide presentation.",
+        "Include Table 1.",
+        "Include KM/log-rank.",
+        "Include Cox HRs and CIs.",
+        "End with limitations and next steps."
+      ],
+
+      "You can present a complete clinical analysis from raw dataset to defensible conclusion.",
+
+      [
+        RES.survivalGuide,
+        RES.table1,
+        RES.survminer
+      ],
+
+      ["capstone", "clinical", "presentation", "final"]
+    )
 
   ]
 }
@@ -2863,118 +3778,229 @@ summary(cox1)`
 
 
 /* =========================================================
-   STATE
-   ========================================================= */
+   APPLICATION STATE
+========================================================= */
 
-const STORAGE_KEY = "analyticsCareerTrial_v2";
+const STORAGE_KEY = "dataBiostatStudyDashboardV4";
 
 let state = JSON.parse(
-  localStorage.getItem(STORAGE_KEY) || "{}"
+  localStorage.getItem(STORAGE_KEY) ||
+  '{"checks":{},"rewards":{},"startDate":"2026-09-02"}'
 );
 
-if(!state.checks) state.checks = {};
-if(!state.startDate) state.startDate = "";
-if(!state.rewards) state.rewards = {};
+if (!state.startDate) {
+  state.startDate = "2026-09-02";
+}
+
+document.getElementById("startDate").value =
+  state.startDate;
 
 
 /* =========================================================
-   DATE
-   ========================================================= */
+   HELPERS
+========================================================= */
 
-function getDateForDay(week,day){
+function escapeHTML(value) {
 
-  if(!state.startDate) return "";
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
-  const start = new Date(state.startDate + "T00:00:00");
-
-  /*
-    5 study days per week.
-    We intentionally skip Saturday and Sunday.
-  */
-
-  const studyDayIndex = (week - 1) * 5 + (day - 1);
-
-  let date = new Date(start);
-
-  let counted = 0;
-
-  while(counted < studyDayIndex){
-
-    date.setDate(date.getDate() + 1);
-
-    const dow = date.getDay();
-
-    if(dow !== 0 && dow !== 6){
-      counted++;
-    }
-  }
-
-  return date.toLocaleDateString(
-    undefined,
-    {
-      weekday:"short",
-      month:"short",
-      day:"numeric"
-    }
-  );
 }
 
 
-/* =========================================================
-   CHECKBOX STATE
-   ========================================================= */
-
-function checkKey(week,day,type,index){
-
-  return `${week}-${day}-${type}-${index}`;
-}
-
-
-function isChecked(key){
-
-  return !!state.checks[key];
-}
-
-
-function toggleCheck(key, checkbox){
-
-  state.checks[key] = checkbox.checked;
+function saveState() {
 
   localStorage.setItem(
     STORAGE_KEY,
     JSON.stringify(state)
   );
 
-  updateDashboard();
-  updateWeekProgress();
-  checkRewards();
 }
 
 
-function renderChecklist(items,week,day,type){
+function showToast(message) {
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  setTimeout(
+    () => toast.classList.remove("show"),
+    3000
+  );
+
+}
+
+
+function taskKey(
+  weekIndex,
+  dayIndex,
+  section,
+  itemIndex
+) {
+
+  return [
+    weekIndex,
+    dayIndex,
+    section,
+    itemIndex
+  ].join("-");
+
+}
+
+
+function isChecked(key) {
+
+  return Boolean(
+    state.checks[key]
+  );
+
+}
+
+
+function studyDate(
+  dayNumber
+) {
+
+  const date = new Date(
+    state.startDate + "T00:00:00"
+  );
+
+  let completedStudyDays = 0;
+
+  while (
+    completedStudyDays < dayNumber
+  ) {
+
+    date.setDate(
+      date.getDate() + 1
+    );
+
+    const dayOfWeek =
+      date.getDay();
+
+    if (
+      dayOfWeek !== 0 &&
+      dayOfWeek !== 6
+    ) {
+      completedStudyDays++;
+    }
+
+  }
+
+  return date;
+
+}
+
+
+function formatDate(date) {
+
+  return date.toLocaleDateString(
+    undefined,
+    {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    }
+  );
+
+}
+
+
+/* =========================================================
+   RESOURCE HTML
+========================================================= */
+
+function renderResources(resources) {
+
+  return resources
+    .map(resource => {
+
+      return `
+        <div class="resource">
+
+          <a
+            href="${resource.url}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ${escapeHTML(resource.title)}
+          </a>
+
+          <span class="cost">
+            ${escapeHTML(resource.cost)}
+          </span>
+
+          <div class="resource-meta">
+            ${escapeHTML(resource.type)}
+            •
+            ${escapeHTML(resource.meta)}
+          </div>
+
+        </div>
+      `;
+
+    })
+    .join("");
+
+}
+
+
+/* =========================================================
+   CHECKLIST HTML
+========================================================= */
+
+function renderChecklist(
+  items,
+  weekIndex,
+  dayIndex,
+  section
+) {
 
   return `
     <ul class="checklist">
 
-      ${items.map((item,index)=>{
+      ${items.map((item, index) => {
 
-        const key = checkKey(
-          week,
-          day,
-          type,
+        const key = taskKey(
+          weekIndex,
+          dayIndex,
+          section,
           index
         );
 
+        const checked =
+          isChecked(key);
+
         return `
           <li>
-            <label class="checklabel">
+
+            <label
+              class="check-item ${
+                checked ? "done" : ""
+              }"
+            >
+
               <input
                 type="checkbox"
-                data-key="${key}"
-                ${isChecked(key) ? "checked" : ""}
+                data-task-key="${key}"
+                ${checked ? "checked" : ""}
               >
-              <span>${item}</span>
+
+              <span>
+                ${escapeHTML(item)}
+              </span>
+
             </label>
+
           </li>
         `;
 
@@ -2982,510 +4008,900 @@ function renderChecklist(items,week,day,type){
 
     </ul>
   `;
+
 }
 
 
 /* =========================================================
-   RENDER
-   ========================================================= */
+   DAY HTML
+========================================================= */
 
-function render(){
+function renderDay(
+  dayData,
+  weekIndex,
+  dayIndex
+) {
 
-  const container =
-    document.getElementById("curriculum");
+  const globalDay =
+    weekIndex * 5 + dayIndex;
 
-  container.innerHTML = "";
+  const searchText = [
+    dayData.title,
+    dayData.subtitle,
+    ...dayData.learn,
+    ...dayData.follow,
+    ...dayData.build,
+    dayData.done,
+    ...dayData.tags,
+    ...dayData.resources.map(
+      r => r.title
+    )
+  ]
+    .join(" ")
+    .toLowerCase();
 
-  curriculum.forEach(week=>{
+  const complete =
+    dayComplete(
+      weekIndex,
+      dayIndex
+    );
 
-    const weekEl =
-      document.createElement("section");
+  return `
+    <article
+      class="day"
+      data-path="${
+        weekIndex < 6
+          ? "python"
+          : "r"
+      }"
+      data-search="${escapeHTML(searchText)}"
+    >
 
-    weekEl.className =
-      `week ${week.path}`;
+      <div class="day-header">
 
-    weekEl.dataset.week =
-      week.week;
+        <div class="day-title">
 
-    weekEl.dataset.path =
-      week.path;
+          <h3>
+            Day ${dayIndex + 1}
+            — ${escapeHTML(dayData.title)}
+          </h3>
 
-    weekEl.dataset.search =
-      JSON.stringify(week).toLowerCase();
+          <p>
+            ${escapeHTML(dayData.subtitle)}
+          </p>
 
-    weekEl.innerHTML = `
+          <div class="date">
+            ${formatDate(
+              studyDate(globalDay)
+            )}
+          </div>
 
-      <div class="week-header">
+        </div>
 
-        <div class="week-title-row">
+        <div
+          class="day-badge ${
+            complete ? "complete" : ""
+          }"
+          data-day-badge="${weekIndex}-${dayIndex}"
+        >
+          ${
+            complete
+              ? "✓ COMPLETE"
+              : "10 pts / task"
+          }
+        </div>
+
+      </div>
+
+
+      <div class="day-body">
+
+        <div class="time-plan">
+
+          <strong>
+            2-HOUR PLAN
+          </strong>
+
+          35–40 min Learn →
+          10 min break →
+          55–60 min Follow Along + Build →
+          10–15 min Review / Done When.
+
+        </div>
+
+
+        <div class="content-grid">
+
 
           <div>
 
-            <div class="path-badge ${week.path}">
-              ${week.path === "path1"
-                ? "PATH 1"
-                : "PATH 2"}
+            <div class="section">
+
+              <h4>
+                LEARN FIRST
+              </h4>
+
+              <ul class="learn-list">
+
+                ${dayData.learn
+                  .map(
+                    item =>
+                      `<li>${escapeHTML(item)}</li>`
+                  )
+                  .join("")}
+
+              </ul>
+
             </div>
 
-            <h2>
-              Week ${week.week}: ${week.title}
-            </h2>
 
-            <div class="week-description">
-              ${week.description}
+            <div class="section">
+
+              <h4>
+                STUDY SOURCES
+              </h4>
+
+              ${renderResources(
+                dayData.resources
+              )}
+
             </div>
 
           </div>
 
-          <div class="week-progress">
 
-            <div
-              class="week-progress-text"
-              id="week-progress-${week.week}"
-            >
-              0%
+          <div>
+
+            <div class="section">
+
+              <h4>
+                FOLLOW ALONG — CHECKLIST
+              </h4>
+
+              ${renderChecklist(
+                dayData.follow,
+                weekIndex,
+                dayIndex,
+                "follow"
+              )}
+
             </div>
 
-            <div class="progress">
-              <div
-                class="progress-bar"
-                id="week-bar-${week.week}"
-              ></div>
+
+            <div class="section">
+
+              <h4>
+                BUILD — CHECKLIST
+              </h4>
+
+              ${renderChecklist(
+                dayData.build,
+                weekIndex,
+                dayIndex,
+                "build"
+              )}
+
             </div>
 
           </div>
 
         </div>
 
-      </div>
 
-      <div class="days">
+        <div class="section">
 
-        ${week.days.map(day=>{
+          <h4>
+            DONE WHEN — CHECKLIST
+          </h4>
 
-          return `
+          ${renderChecklist(
+            [dayData.done],
+            weekIndex,
+            dayIndex,
+            "done"
+          )}
 
-            <article
-              class="day"
-              data-week="${week.week}"
-              data-day="${day.day}"
-              data-search="${(
-                JSON.stringify(day) +
-                JSON.stringify(week)
-              ).toLowerCase()}"
-            >
-
-              <div class="day-header">
-
-                <div>
-
-                  <div class="day-title">
-                    Day ${day.day} — ${day.title}
-                  </div>
-
-                  <div class="day-subtitle">
-                    ${day.subtitle}
-                    ${getDateForDay(week.week,day.day)
-                      ? " • " + getDateForDay(week.week,day.day)
-                      : ""}
-                  </div>
-
-                </div>
-
-                <div class="day-reward">
-                  +${day.follow.length + day.build.length} pts
-                </div>
-
-              </div>
+        </div>
 
 
-              <div class="timebox">
+        ${
+          dayData.code
+            ? `
 
-                <strong>2-hour structure:</strong>
+              <div class="section">
 
-                35 min Learn →
-                10 min break →
-                55 min Follow Along →
-                15 min Build →
-                5 min review
+                <h4>
+                  COPY-PASTE CODE
+                </h4>
 
-              </div>
+                <div class="code-wrapper">
 
+                  <button
+                    class="copy-btn"
+                    type="button"
+                  >
+                    Copy
+                  </button>
 
-              <div class="resource-grid">
-
-                ${resourceHTML(day.resources[0])}
-                ${resourceHTML(day.resources[1])}
-
-              </div>
-
-
-              <div class="sections">
-
-                <div class="section learn">
-
-                  <h4>📚 Learn First</h4>
-
-                  ${renderChecklist(
-                    day.learn,
-                    week.week,
-                    day.day,
-                    "learn"
-                  )}
-
-                </div>
-
-
-                <div class="section follow">
-
-                  <h4>▶ Follow Along — Reward Checklist</h4>
-
-                  ${renderChecklist(
-                    day.follow,
-                    week.week,
-                    day.day,
-                    "follow"
-                  )}
-
-                </div>
-
-
-                <div class="section build">
-
-                  <h4>🛠 Build — Reward Checklist</h4>
-
-                  ${renderChecklist(
-                    day.build,
-                    week.week,
-                    day.day,
-                    "build"
-                  )}
-
-                </div>
-
-
-                <div class="section done">
-
-                  <h4>🏁 Done When</h4>
-
-                  <div class="done-box">
-                    ${day.done}
-                  </div>
+                  <pre>${escapeHTML(
+                    dayData.code
+                  )}</pre>
 
                 </div>
 
               </div>
 
-
-              ${day.code ? codeHTML(day.code) : ""}
-
-
-              <div class="tags">
-
-                ${day.tags.map(
-                  tag=>`<span class="tag">${tag}</span>`
-                ).join("")}
-
-              </div>
-
-            </article>
-
-          `;
-
-        }).join("")}
+            `
+            : ""
+        }
 
       </div>
 
-    `;
+    </article>
+  `;
 
-    container.appendChild(weekEl);
+}
 
-  });
 
+/* =========================================================
+   WEEK HTML
+========================================================= */
+
+function renderCurriculum() {
+
+  const container =
+    document.getElementById(
+      "curriculum"
+    );
+
+  container.innerHTML =
+    curriculum
+      .map((week, weekIndex) => {
+
+        const weekComplete =
+          isWeekComplete(
+            weekIndex
+          );
+
+        return `
+          <section
+            class="week"
+            data-week="${weekIndex}"
+            data-path="${week.path}"
+          >
+
+            <div class="week-header">
+
+              <h2>
+                ${escapeHTML(
+                  week.title
+                )}
+              </h2>
+
+              <p>
+                ${escapeHTML(
+                  week.description
+                )}
+              </p>
+
+              <div class="week-progress">
+
+                <div
+                  class="week-progress-label"
+                  data-week-label="${weekIndex}"
+                >
+                  ${weekComplete
+                    ? "✓ Week complete"
+                    : "0% complete"}
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="days">
+
+              ${week.days
+                .map(
+                  (dayData, dayIndex) =>
+                    renderDay(
+                      dayData,
+                      weekIndex,
+                      dayIndex
+                    )
+                )
+                .join("")}
+
+            </div>
+
+          </section>
+        `;
+
+      })
+      .join("");
+
+  bindCheckboxes();
+
+  bindCopyButtons();
+
+  updateDashboard();
+
+}
+
+
+/* =========================================================
+   CHECKBOX LOGIC
+========================================================= */
+
+function bindCheckboxes() {
 
   document
-    .querySelectorAll(".checklabel input")
-    .forEach(input=>{
+    .querySelectorAll(
+      "input[data-task-key]"
+    )
+    .forEach(checkbox => {
 
-      input.addEventListener(
+      checkbox.addEventListener(
         "change",
-        ()=>{
-          toggleCheck(
-            input.dataset.key,
-            input
-          );
+        function () {
+
+          const key =
+            this.dataset.taskKey;
+
+          state.checks[key] =
+            this.checked;
+
+          saveState();
+
+          updateDashboard();
+
+          checkMilestones();
+
+          const label =
+            this.closest(
+              ".check-item"
+            );
+
+          if (label) {
+
+            label.classList.toggle(
+              "done",
+              this.checked
+            );
+
+          }
+
         }
       );
 
     });
 
+}
 
-  updateDashboard();
-  updateWeekProgress();
-  applyFilters();
+
+/* =========================================================
+   COPY BUTTONS
+========================================================= */
+
+function bindCopyButtons() {
+
+  document
+    .querySelectorAll(
+      ".copy-btn"
+    )
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        async function () {
+
+          const code =
+            this.parentElement
+              .querySelector("pre")
+              .innerText;
+
+          try {
+
+            await navigator
+              .clipboard
+              .writeText(code);
+
+            this.textContent =
+              "Copied!";
+
+            setTimeout(
+              () =>
+                this.textContent =
+                  "Copy",
+              1200
+            );
+
+          } catch {
+
+            this.textContent =
+              "Copy manually";
+
+          }
+
+        }
+      );
+
+    });
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function getDayKeys(
+  weekIndex,
+  dayIndex
+) {
+
+  const dayData =
+    curriculum[
+      weekIndex
+    ].days[
+      dayIndex
+    ];
+
+  const keys = [];
+
+  dayData.follow.forEach(
+    (_, index) => {
+
+      keys.push(
+        taskKey(
+          weekIndex,
+          dayIndex,
+          "follow",
+          index
+        )
+      );
+
+    }
+  );
+
+  dayData.build.forEach(
+    (_, index) => {
+
+      keys.push(
+        taskKey(
+          weekIndex,
+          dayIndex,
+          "build",
+          index
+        )
+      );
+
+    }
+  );
+
+  keys.push(
+    taskKey(
+      weekIndex,
+      dayIndex,
+      "done",
+      0
+    )
+  );
+
+  return keys;
+
+}
+
+
+function dayComplete(
+  weekIndex,
+  dayIndex
+) {
+
+  return getDayKeys(
+    weekIndex,
+    dayIndex
+  ).every(
+    key => isChecked(key)
+  );
+
+}
+
+
+function isWeekComplete(
+  weekIndex
+) {
+
+  return [0,1,2,3,4].every(
+    dayIndex =>
+      dayComplete(
+        weekIndex,
+        dayIndex
+      )
+  );
+
+}
+
+
+function progressFor(
+  filter = "all"
+) {
+
+  let total = 0;
+  let completed = 0;
+
+  curriculum.forEach(
+    (week, weekIndex) => {
+
+      if (
+        filter === "python" &&
+        week.path !== "python"
+      ) {
+        return;
+      }
+
+      if (
+        filter === "r" &&
+        week.path !== "r"
+      ) {
+        return;
+      }
+
+      week.days.forEach(
+        (_, dayIndex) => {
+
+          const keys =
+            getDayKeys(
+              weekIndex,
+              dayIndex
+            );
+
+          total += keys.length;
+
+          completed +=
+            keys.filter(
+              key =>
+                isChecked(key)
+            ).length;
+
+        }
+      );
+
+    }
+  );
+
+  return {
+    total,
+    completed,
+    percent:
+      total === 0
+        ? 0
+        : Math.round(
+            completed /
+            total *
+            100
+          )
+  };
 
 }
 
 
 /* =========================================================
    DASHBOARD
-   ========================================================= */
+========================================================= */
 
-function allCheckboxes(){
+function updateDashboard() {
 
-  return document.querySelectorAll(
-    ".checklabel input"
-  );
-}
+  const overall =
+    progressFor("all");
 
+  const python =
+    progressFor("python");
 
-function updateDashboard(){
-
-  const boxes = allCheckboxes();
-
-  let checked = 0;
-
-  boxes.forEach(box=>{
-    if(box.checked) checked++;
-  });
-
-  const total = boxes.length;
-
-  const percent =
-    total
-      ? Math.round((checked / total) * 100)
-      : 0;
+  const r =
+    progressFor("r");
 
   document.getElementById(
-    "overallPercent"
-  ).textContent = percent + "%";
+    "overallPct"
+  ).textContent =
+    overall.percent + "%";
 
   document.getElementById(
-    "overallBar"
-  ).style.width = percent + "%";
+    "overallText"
+  ).textContent =
+    `${overall.completed} / ${overall.total} tasks completed`;
 
   document.getElementById(
     "points"
-  ).textContent = checked;
-
-  const completedDays =
-    curriculum.reduce((total,week)=>{
-
-      return total +
-        week.days.filter(day=>{
-
-          const boxes = [
-            ...document.querySelectorAll(
-              `.day[data-week="${week.week}"][data-day="${day.day}"] input`
-            )
-          ];
-
-          return boxes.length &&
-            boxes.every(box=>box.checked);
-
-        }).length;
-
-    },0);
-
-  document.getElementById(
-    "daysCompleted"
   ).textContent =
-    `${completedDays} / 60`;
-
-  let current = "Path 1";
-
-  if(completedDays >= 30){
-    current = "Path 2";
-  }
-
-  if(completedDays === 60){
-    current = "Complete";
-  }
+    overall.completed * 10;
 
   document.getElementById(
-    "currentPath"
-  ).textContent = current;
+    "path1Pct"
+  ).textContent =
+    python.percent + "%";
 
-}
+  document.getElementById(
+    "path2Pct"
+  ).textContent =
+    r.percent + "%";
+
+  document.getElementById(
+    "overallBar"
+  ).style.width =
+    overall.percent + "%";
 
 
-/* =========================================================
-   WEEK PROGRESS
-   ========================================================= */
+  for (
+    let weekIndex = 0;
+    weekIndex < 12;
+    weekIndex++
+  ) {
 
-function updateWeekProgress(){
+    let total = 0;
+    let completed = 0;
 
-  curriculum.forEach(week=>{
+    for (
+      let dayIndex = 0;
+      dayIndex < 5;
+      dayIndex++
+    ) {
 
-    const boxes = document.querySelectorAll(
-      `.week[data-week="${week.week}"] input`
-    );
+      const keys =
+        getDayKeys(
+          weekIndex,
+          dayIndex
+        );
 
-    let checked = 0;
+      total += keys.length;
 
-    boxes.forEach(box=>{
-      if(box.checked) checked++;
-    });
+      completed +=
+        keys.filter(
+          key =>
+            isChecked(key)
+        ).length;
+
+      const badge =
+        document.querySelector(
+          `[data-day-badge="${weekIndex}-${dayIndex}"]`
+        );
+
+      if (badge) {
+
+        const complete =
+          dayComplete(
+            weekIndex,
+            dayIndex
+          );
+
+        badge.textContent =
+          complete
+            ? "✓ COMPLETE"
+            : `${keys.length -
+                keys.filter(
+                  key => isChecked(key)
+                ).length
+              } tasks left`;
+
+        badge.classList.toggle(
+          "complete",
+          complete
+        );
+
+      }
+
+    }
 
     const percent =
-      boxes.length
-        ? Math.round(
-            checked / boxes.length * 100
-          )
-        : 0;
+      total === 0
+        ? 0
+        : Math.round(
+            completed /
+            total *
+            100
+          );
 
-    const text =
-      document.getElementById(
-        `week-progress-${week.week}`
+    const label =
+      document.querySelector(
+        `[data-week-label="${weekIndex}"]`
       );
 
-    const bar =
-      document.getElementById(
-        `week-bar-${week.week}`
-      );
+    if (label) {
 
-    if(text) text.textContent = percent + "%";
-    if(bar) bar.style.width = percent + "%";
+      label.textContent =
+        isWeekComplete(
+          weekIndex
+        )
+          ? "✓ Week complete"
+          : `${percent}% complete`;
 
-  });
+    }
+
+  }
 
 }
 
 
 /* =========================================================
-   REWARDS
-   ========================================================= */
+   MILESTONES
+========================================================= */
 
-function showReward(title,message){
+function checkMilestones() {
 
-  const banner =
-    document.getElementById("rewardBanner");
+  for (
+    let weekIndex = 0;
+    weekIndex < 12;
+    weekIndex++
+  ) {
 
-  document.getElementById(
-    "rewardTitle"
-  ).textContent = title;
+    const rewardKey =
+      "week-" +
+      (weekIndex + 1);
 
-  document.getElementById(
-    "rewardMessage"
-  ).textContent = message;
+    if (
+      isWeekComplete(
+        weekIndex
+      ) &&
+      !state.rewards[rewardKey]
+    ) {
 
-  banner.classList.add("show");
+      state.rewards[rewardKey] =
+        true;
 
-  setTimeout(()=>{
-    banner.classList.remove("show");
-  },4500);
+      saveState();
 
-}
-
-
-function checkRewards(){
-
-  curriculum.forEach(week=>{
-
-    const boxes =
-      document.querySelectorAll(
-        `.week[data-week="${week.week}"] input`
-      );
-
-    if(
-      boxes.length &&
-      [...boxes].every(box=>box.checked) &&
-      !state.rewards["week"+week.week]
-    ){
-
-      state.rewards["week"+week.week] = true;
-
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(state)
-      );
-
-      showReward(
-        `🏆 Week ${week.week} complete!`,
-        week.week === 6
-          ? "Path 1 is complete. You earned the Business Analytics milestone."
-          : week.week === 12
-          ? "You completed the entire 12-week career trial."
-          : "You earned your weekly completion reward."
+      showToast(
+        `Week ${
+          weekIndex + 1
+        } complete! Milestone unlocked.`
       );
 
     }
 
-  });
+  }
+
+}
+
+
+function renderMilestones() {
+
+  const container =
+    document.getElementById(
+      "milestones"
+    );
+
+  const completedWeeks =
+    curriculum.filter(
+      (_, index) =>
+        isWeekComplete(index)
+    ).length;
+
+  let html = "";
+
+  if (
+    completedWeeks >= 1
+  ) {
+
+    html += `
+      <div class="reward">
+        🏆 First week complete —
+        you have started building a real analytical workflow.
+      </div>
+    `;
+
+  }
+
+  if (
+    completedWeeks >= 6
+  ) {
+
+    html += `
+      <div class="reward">
+        🐍 PATH 1 COMPLETE —
+        Python + Applied Statistics +
+        Business Analytics milestone unlocked.
+      </div>
+    `;
+
+  }
+
+  if (
+    completedWeeks >= 12
+  ) {
+
+    html += `
+      <div class="reward">
+        🎓 12-WEEK PROGRAM COMPLETE —
+        you finished both analytical paths.
+      </div>
+    `;
+
+  }
+
+  if (html === "") {
+
+    html = `
+      <div style="
+        margin-top:12px;
+        color:#697066;
+        font-size:13px;
+      ">
+        Milestones will appear here as you complete weeks.
+      </div>
+    `;
+
+  }
+
+  container.innerHTML =
+    html;
 
 }
 
 
 /* =========================================================
-   FILTERS
-   ========================================================= */
+   FILTERING
+========================================================= */
 
-function applyFilters(){
+function applyFilters() {
 
-  const search =
+  const query =
     document
       .getElementById("search")
       .value
-      .toLowerCase()
-      .trim();
+      .trim()
+      .toLowerCase();
 
   const path =
     document
       .getElementById("pathFilter")
       .value;
 
-  const week =
-    document
-      .getElementById("weekFilter")
-      .value;
+  document
+    .querySelectorAll(".week")
+    .forEach(weekElement => {
 
-
-  document.querySelectorAll(".week")
-    .forEach(weekEl=>{
-
-      const weekNumber =
-        weekEl.dataset.week;
-
-      const pathMatch =
-        path === "all" ||
-        weekEl.dataset.path === path;
-
-      const weekMatch =
-        week === "all" ||
-        weekNumber === week;
+      const weekPath =
+        weekElement.dataset.path;
 
       let visibleDays = 0;
 
-      weekEl.querySelectorAll(".day")
-        .forEach(dayEl=>{
+      weekElement
+        .querySelectorAll(".day")
+        .forEach(dayElement => {
 
-          const text =
-            dayEl.dataset.search;
+          const dayPath =
+            dayElement.dataset.path;
 
-          const searchMatch =
-            !search ||
-            text.includes(search);
+          const searchable =
+            dayElement.dataset.search;
+
+          const matchesPath =
+            path === "all" ||
+            path === dayPath;
+
+          const matchesSearch =
+            !query ||
+            searchable.includes(query);
 
           const visible =
-            pathMatch &&
-            weekMatch &&
-            searchMatch;
+            matchesPath &&
+            matchesSearch;
 
-          dayEl.classList.toggle(
+          dayElement.classList.toggle(
             "hidden",
             !visible
           );
 
-          if(visible){
+          if (visible) {
             visibleDays++;
           }
 
         });
 
-      weekEl.style.display =
-        visibleDays > 0
-          ? ""
-          : "none";
+      weekElement.classList.toggle(
+        "hidden",
+        visibleDays === 0
+      );
 
     });
 
@@ -3493,52 +4909,44 @@ function applyFilters(){
 
 
 /* =========================================================
-   START DATE
-   ========================================================= */
+   TAB EVENTS
+========================================================= */
 
-const startDate =
-  document.getElementById("startDate");
+document
+  .querySelectorAll(".tab")
+  .forEach(tab => {
 
-startDate.value =
-  state.startDate || "";
+    tab.addEventListener(
+      "click",
+      function () {
 
-startDate.addEventListener(
-  "change",
-  ()=>{
-    state.startDate =
-      startDate.value;
+        const filter =
+          this.dataset.filter;
 
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(state)
+        document.getElementById(
+          "pathFilter"
+        ).value =
+          filter;
+
+        document
+          .querySelectorAll(".tab")
+          .forEach(
+            t =>
+              t.classList.remove(
+                "active"
+              )
+          );
+
+        this.classList.add(
+          "active"
+        );
+
+        applyFilters();
+
+      }
     );
 
-    render();
-  }
-);
-
-
-/* =========================================================
-   WEEK FILTER OPTIONS
-   ========================================================= */
-
-const weekFilter =
-  document.getElementById("weekFilter");
-
-curriculum.forEach(week=>{
-
-  const option =
-    document.createElement("option");
-
-  option.value =
-    week.week;
-
-  option.textContent =
-    `Week ${week.week} — ${week.title}`;
-
-  weekFilter.appendChild(option);
-
-});
+  });
 
 
 document
@@ -3548,26 +4956,101 @@ document
     applyFilters
   );
 
+
 document
   .getElementById("pathFilter")
   .addEventListener(
     "change",
-    applyFilters
-  );
+    function () {
 
-document
-  .getElementById("weekFilter")
-  .addEventListener(
-    "change",
-    applyFilters
+      const value =
+        this.value;
+
+      document
+        .querySelectorAll(".tab")
+        .forEach(
+          tab =>
+            tab.classList.toggle(
+              "active",
+              tab.dataset.filter === value
+            )
+        );
+
+      applyFilters();
+
+    }
   );
 
 
 /* =========================================================
-   INITIALIZE
-   ========================================================= */
+   START DATE
+========================================================= */
 
-render();
+document
+  .getElementById("startDate")
+  .addEventListener(
+    "change",
+    function () {
+
+      if (!this.value) {
+        return;
+      }
+
+      const selected =
+        new Date(
+          this.value +
+          "T00:00:00"
+        );
+
+      const day =
+        selected.getDay();
+
+      if (
+        day === 0 ||
+        day === 6
+      ) {
+
+        const daysToMonday =
+          day === 6
+            ? 2
+            : 1;
+
+        selected.setDate(
+          selected.getDate() +
+          daysToMonday
+        );
+
+        this.value =
+          selected
+            .toISOString()
+            .slice(0, 10);
+
+        showToast(
+          "You selected a weekend. The study plan has been moved to Monday."
+        );
+
+      }
+
+      state.startDate =
+        this.value;
+
+      saveState();
+
+      renderCurriculum();
+
+    }
+  );
+
+
+/* =========================================================
+   INITIALISE
+========================================================= */
+
+renderCurriculum();
+
+renderMilestones();
+
+applyFilters();
 
 </script>
 
